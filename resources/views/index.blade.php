@@ -22,7 +22,7 @@
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-fixed w-100">
         <div class="container">
           <a class="navbar-brand" href="#">
             <img src="{{ asset('frontend/assets/image/logo-70.png') }}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-3">
@@ -53,6 +53,23 @@
           </div>
         </div>
       </nav>
+
+      <!-- hero section -->
+      <section id="hero">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-md-6 hero-tagline my-auto">
+                    <h1>Membantu Orang Tua</h1>
+                    <p><span class="fw-bold">Rumah Impian</span> hadir untuk temukan rumah terbaik untukmu, untuk di jual ataupun di sewa dengan sumber terpercaya.</p>
+
+                    <button class="button-lg-primary">Temukan Rumah</button>
+                    <a href="#"><img src="{{ asset('frontend/assets/image/arrow.png') }}" alt=""></a>
+                </div>
+            </div>
+            <img src="{{ asset('frontend/assets/image/hero_banner.png') }}" alt="" class="position-absolute end-0 bottom-0 img-hero">
+            <img src="{{ asset('frontend/assets/image/accent.png') }}" alt="" class="accent-img h-100 position-absolute top-0 start-0">
+        </div>
+      </section>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
