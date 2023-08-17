@@ -4,7 +4,23 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: aquamarine;
+    background-color: #fff;
+}
+
+.navbar{
+    z-index: 3;
+}
+
+*{
+    z-index: 2;
+}
+
+.accent-img{
+    z-index: 1;
+}
+
+.img-hero{
+    z-index: 1;
 }
 
 .navbar-brand {
@@ -39,3 +55,127 @@ body {
     font-size: 16px;
     font-weight: 400; 
 }
+
+/* Hero Section */
+
+#hero{
+    background: linear-gradient(160deg, var(--pr-color), #000);
+    height: 100vh;
+    width: 100%;
+}
+
+.img-hero{
+    height: 67%;
+}
+
+.hero-tagline h1{
+    color: #fff;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 72px;
+
+}
+.hero-tagline p{
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 60px;
+    margin-top: 20px;
+    line-height: 30px;
+    width: 85%;
+}
+
+.button-lg-primary{
+    width: 270px;
+    height: 70px;
+    background-color: #fff;
+    color: var(--pr-color);
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+
+}
+
+<<<<<<< HEAD
+#layanan{
+    padding: 100px 0;
+}
+
+h2{
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--pr-color);
+}
+
+.sub-title{
+    font-size: 18ppx;
+    color: #000;
+}
+
+.card-layanan{
+    width: 100%;
+    height: 313px;
+    border-radius: 5px;
+    background-color:#fff;
+    padding: 40px;
+    box-shadow: 0 0 7px 3px rgba(0, 0,0, 0.05);
+
+    transition: all .2s ease-in;
+}
+
+.circle-icon{
+    width: 70px;
+    height: 70px;
+    background-color: var(--pr-color);
+    border-radius: 50%;
+
+    transition: all .1s ease-in;
+}
+
+.card-layanan h3{
+    color: var(--pr-color);
+    font-size: 24px;
+
+    transition: all .2s ease-in;
+}
+
+.card-layanan p{
+    color: #000;
+    font-size: 14px;
+
+    transition: all .3s ease-in;
+}
+
+/* Hover */
+
+.card-layanan:hover{
+    width: 100%;
+    height: 313px;
+    border-radius: 5px;
+    background: linear-gradient(160deg, var(--pr-color), rgb(0, 0, 0));
+    padding: 40px;
+    box-shadow: 0 0 7px 3px rgba(0, 0,0, 0.05);
+
+    transition: all .2s ease-in;
+}
+
+.card-layanan:hover .circle-icon{
+    background-color: #fff;
+
+    transition: all .2s ease-in;
+}
+
+.card-layanan:hover h3{
+    color: #fff;
+    font-size: 24px;
+
+    transition: all .2s ease-in;
+}
+
+.card-layanan:hover p{
+    color: #fff;
+    font-size: 14px;
+
+    transition: all .2s ease-in;
+}
+=======
+>>>>>>> daf78cee25991fce6c8726712e9b7b0154e81d9b
