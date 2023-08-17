@@ -16,7 +16,10 @@ use App\Http\Controllers\ProfilController;
 */
 
 Auth::routes();
-
+//logoutn
+Route::get('/', function () {
+    return view('index');
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //group route for admin
@@ -25,7 +28,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], funct
     Route::get('/home', [HomeController::class, 'adminHome'])->name('admin.home');
     //profil
     Route::get('/profile/{id}', [ProfilController::class, 'index'])->name('admin.profile');
-
+    Route::post('/updateProfil/{id}', [ProfilController::class, 'updateProfil'])->name('admin.profile.update');
     Route::resource('users', 'App\Http\Controllers\Admin\UserController');
 });
 

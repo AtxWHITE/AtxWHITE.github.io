@@ -22,30 +22,56 @@
   <hr class="sidebar-divider">
 
   <!-- Heading -->
-  <div class="sidebar-heading">
-    Menu
+  <div class="sidebar-heading" style="margin-bottom: 5px;">
+    Menu Master
   </div>
+  <!-- //hr  -->
+  <!-- Nav Item - Pages Collapse Menu -->
+  <hr class="sidebar-divider d-none d-md-block">
 
 
+  <!-- Order -->
   <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-      <i class="fas fa-box"></i>
-      <span>Menu</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Master :</h6>
-        <!-- Order dan icon  -->
-        <a class="collapse-item" href=""><i class="fas fa-cart-arrow-down"></i> Order</a>
-        <!-- Reviews -->
-        <a class="collapse-item" href=""><i class="fas fa-star"></i> Reviews</a>
-        <!-- Unsuspend -->
-        <a class="collapse-item" href=""><i class="fas fa-user-check"></i> Unsuspend</a>
-        <!-- Register -->
-        <a class="collapse-item" href=""><i class="fas fa-user-plus"></i> Register</a>
-      </div>
-    </div>
+    <a class="nav-link" href="">
+      <i class="fas fa-cart-arrow-down"></i>
+      <span>Order</span></a>
   </li>
+  <!-- Reviews -->
+  <li class="nav-item">
+    <a class="nav-link" href="">
+      <i class="fas fa-star"></i>
+      <span>Reviews</span></a>
+  </li>
+  <!-- Unsuspend -->
+  <li class="nav-item">
+    <a class="nav-link" href="">
+      <i class="fas fa-user-check"></i>
+      <span>Unsuspend</span></a>
+  </li>
+  <!-- Register -->
+  <li class="nav-item">
+    <a class="nav-link" href="">
+      <i class="fas fa-user-plus"></i>
+      <span>Register</span></a>
+  </li>
+
+
+
+  <!-- data customers  -->
+  <li class="nav-item">
+    <a class="nav-link" href="">
+      <i class="fas fa-users"></i>
+      <span>Customers</span></a>
+  </li>
+  <!-- //data terapis icon database  -->
+  <li class="nav-item">
+    <a class="nav-link" href="">
+      <i class="fas fa-database"></i>
+      <span>Terapis</span></a>
+  </li>
+
+
+
 
 
 
@@ -54,14 +80,14 @@
   <hr class="sidebar-divider d-none d-md-block">
   <!-- Heading -->
   <div class="sidebar-heading">
-    General Settings
+    Reports
   </div>
 
-  <!-- Users -->
+  <!-- Laporan -->
   <li class="nav-item">
     <a class="nav-link" href="">
-      <i class="fas fa-users"></i>
-      <span>Users</span></a>
+      <i class="fas fa-file-alt"></i>
+      <span>Laporan</span></a>
   </li>
   <!-- General settings -->
   <li class="nav-item">

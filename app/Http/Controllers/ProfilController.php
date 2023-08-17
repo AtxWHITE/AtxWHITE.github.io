@@ -26,21 +26,40 @@ class ProfilController extends Controller
      * @return \Illuminate\Http\Response
      */
     //update 
-    public function updateProfil(Request $request)
+    public function updateProfil(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'phone_number' => 'required',
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'phone_number' => 'required',
+        // ]);
+
+        // // $user = User::find(Auth::user()->id);
+        // // $user->name = $request->name;
+        // // $user->phone_number = $request->phone_number;
+        // // $user->save();
+
 
         $user = User::find(Auth::user()->id);
         $user->name = $request->name;
-        $user->phone_number = $request->phone_number;
+        $user->email = $request->email;
         $user->save();
 
-        $profil = Profil::where('user_id', Auth::user()->id)->first();
-        $profil->address = $request->address;
+
+
+        $profil = Profil::find($id);
+        $profil->user_id = $user->id;
+        $profil->ktp = $request->ktp;
+        $profil->jenis_kelamin = $request->jenis_kelamin;
+        $profil->no_hp = $request->no_hp;
+        $profil->status = $request->status;
+        $profil->alamat = $request->alamat;
+        $profil->tempat_lahir = $request->tempat_lahir;
+        $profil->tanggal_lahir = $request->tanggal_lahir;
+        if ($request->hasFile('foto')) {
+            $request->file('foto')->move(storage_path('app/public/foto'), $request->file('foto')->getClientOriginalName());
+            $profil->foto = $request->file('foto')->getClientOriginalName();
+        }
         $profil->save();
         return redirect()->back()->with('success', 'Profil berhasil diupdate');
     }
