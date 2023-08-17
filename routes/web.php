@@ -28,3 +28,16 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], funct
 
     Route::resource('users', 'App\Http\Controllers\Admin\UserController');
 });
+
+Route::get('/user', function () {
+    return view('index');
+});
+
+Route::get('/login', function () {
+     return view('login');
+});
+
+Route::get('/register', function () {
+    return view('register');
+});
+
