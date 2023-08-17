@@ -24,7 +24,7 @@
 <body>
     <section class="login">
         <div class="login-left w-50 h-100">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center align-items-center h-100">
                 <div class="col-6">
                     <div class="header">
                         <h1>Welcome back</h1>
@@ -50,7 +50,38 @@
             </div>
 
         </div>
-        <div class="login-right w-50 h-100"></div>
+        <div class="login-right w-50 h-100">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{ asset('frontend/assets/image/pijat1.jpeg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{{ asset('frontend/assets/image/pijat2.jpeg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{{ asset('frontend/assets/image/pijat3.jpeg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        </div>
     </section>
 
     <!-- Optional JavaScript; choose one of the two! -->
