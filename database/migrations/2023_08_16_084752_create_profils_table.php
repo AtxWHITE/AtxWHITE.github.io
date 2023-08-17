@@ -22,6 +22,12 @@ class CreateProfilsTable extends Migration
             $table->string('alamat');
             $table->string('foto');
             $table->string('ktp');
+            //Status-
+            $table->string('status')->nullable();
+            // Tempat Lahir-
+            $table->string('tempat_lahir')->nullable();
+            // Tanggal Lahir-
+            $table->date('tanggal_lahir')->nullable();
             $table->timestamps();
             //foreign key
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');
