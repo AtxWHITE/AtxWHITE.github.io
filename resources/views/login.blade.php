@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <section class="login">
+    <section class="login d-flex">
         <div class="login-left w-50 h-100">
             <div class="row justify-content-center align-items-center h-100">
                 <div class="col-6">
@@ -48,8 +48,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
+
+</div>
         <div class="login-right w-50 h-100">
         <div id="carouselExampleFade" class="carousel slide carousel-fade">
   <div class="carousel-inner">

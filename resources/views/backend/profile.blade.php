@@ -24,10 +24,9 @@
             <div class="form-group">
                 <label for="inputPhoto" class="col-form-label">Foto <span class="text-danger">*</span></label>
                 <div class="input-group" style="margin-bottom: 10px;">
-                    <img src="{{asset('storage/foto/'.$data->profile->foto)}}" width="80">
                 </div>
                 <div class="input-group">
-                    <input id="photo" class="form-control" type="file" name="foto" value="{{$data->profile->photo}}">
+                    <input id="photo" class="form-control" type="file" name="foto" value="">
                 </div>
 
                 <div id="holder" style="margin-top:15px;max-height:100px;"></div>
@@ -46,7 +45,7 @@
             <!-- ktp =no_ktp  -->
             <div class="form-group">
                 <label for="ktp" class="col-form-label">No KTP <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="ktp" required value="{{$data->profile->ktp}}">
+                <input type="text" class="form-control" name="ktp" required value="">
                 @error('ktp')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
