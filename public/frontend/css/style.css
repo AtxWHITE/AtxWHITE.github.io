@@ -236,7 +236,7 @@ h2{
     background-color: var(--pr-color);
     color: #fff;
     border: none;
-    font-size: 36px;
+    font-size: 21px;
     font-weight: 500;
     border-radius: 0 10px 0 10px;
 }
@@ -245,19 +245,59 @@ h2{
     border: none;
 }
 
-.nav-tabs .nav-link{
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 0 0 0 0;
+/* Tampilan Testimoni */
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
 }
 
-.nav-tabs .nav-link.active{
-    background-color: rgba(255, 255, 255, 0.5);
-    color: var(--pr-color);
-    border-radius: 0 9px 0 0;
-    font-weight: 500;
+nav ul li {
+    margin: 0 1rem;
 }
 
-.nav-tabs .nav-link{
-    color: #000;
-    border: none;
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.testimonials {
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.testimonials h1 {
+    margin-bottom: 1.5rem;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.avatar img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.rating {
+    font-size: 1.5rem;
+    color: #f39c12;
+}
+
+.star {
+    display: inline-block;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .testimonials {
+        padding: 2rem 0;
+    }
 }
