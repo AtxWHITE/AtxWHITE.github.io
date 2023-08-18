@@ -19,7 +19,7 @@
     <!-- logo tittle bar -->
     <link rel="icon" href="{{ asset('frontend/assets/image/logo-70.png') }}" style="image/x-icon">
 
-    <title>Hello, world!</title>
+    <title>Pijat.in</title>
 </head>
 
 <body>
@@ -49,11 +49,10 @@
                     </li>
                 </ul>
                 <div>
-                    @if(Auth::check())
+                    @if (Auth::check())
                     <div class="dropdown">
                         <!-- //icon profile  -->
                         <?php
-
 
                         ?>
                         <a>
@@ -67,7 +66,8 @@
                                 <li><a class="dropdown-item" href="#">Profil</a></li>
                                 <li><a class="dropdown-item" href="#">Pengaturan</a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Keluar</a></li>
+                                                     document.getElementById('logout-form').submit();">Keluar</a>
+                                </li>
 
                             </ul>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -90,7 +90,7 @@
             <div class="row h-100">
                 <div class="col-md-6 hero-tagline my-auto">
                     <h1>Jasa Pijat dan Massage Panggilan Terpercaya</h1>
-                    <p><span class="fw-bold">Piji.in</span> mengingatkan agar selalu menjaga kesehatan pada tubuh kita
+                    <p><span class="fw-bold">Pijat.in</span> mengingatkan agar selalu menjaga kesehatan pada tubuh kita
                         sendiri dengan cara yang sangat mudah, yaitu dengan metode Massage, Spa & Pijat.</p>
 
                     <button class="button-lg-primary">Tanya Kami</button>
@@ -188,10 +188,10 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <h2>
-                        Temukan Pijat
+                        Diskon khusus untuk bulan ini 30%
                     </h2>
                     <p>
-                        Santai tubuh dan pikiran, biarkan pijatan mengalirkan kebahagiaan
+                        Lakukan pemesanan sekarang juga dan langsung dapatkan potongan harga spesial.
                     </p>
                 </div>
 
@@ -200,35 +200,85 @@
                         <li class="nav-item" role="presentation">
                         </li>
                     </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="jual" role="tabpanel" aria-labelledby="home-tab">
-                            <!--Dropdown Tipe Rumah-->
-                            <div class="input-group input-cari mb-3">
-                                <button class="button-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Tipe Pijat</button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
-
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Cari Pijet">
-
-                                <button class="button-primary" type="button" id="button-addon2">Cari</button>
-                            </div>
-
-                        </div>
+                    <!--Dropdown Tipe Rumah-->
+                    <div class="input-group input-cari mb-">
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Email Address">
+                        <button class="button-primary" type="button" id="button-addon2">Subscribe Now</button>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </section>
 
+    <!-- Testimoni -->
+    <section class="testimonials py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Testimoni</h2>
+                    <span class="sub-title">Sebagian pelanggan kami memberikan ulasan tentang pijat.in</span>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="avatar">
+                            <img src="{{ asset('frontend/assets/image/orang1.jpeg') }}" alt="John Doe" class="img-fluid rounded-circle">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">John Doe</h5>
+                            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra urna sed mi sodales."</p>
+                            <div class="rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9734;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="avatar">
+                            <img src="{{ asset('frontend/assets/image/orang2.png') }}" alt="Jane Smith" class="img-fluid rounded-circle">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Jane Smith</h5>
+                            <p class="card-text">"Ut semper massa sed felis euismod, et faucibus risus accumsan."</p>
+                            <div class="rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="avatar">
+                            <img src="{{ asset('frontend/assets/image/orang3.jpeg') }}" alt="John Doe" class="img-fluid rounded-circle">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">John Doe</h5>
+                            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra urna sed mi sodales."</p>
+                            <div class="rating">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9734;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more testimonials here -->
+            </div>
+        </div>
+    </section>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
