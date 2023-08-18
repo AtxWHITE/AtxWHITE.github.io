@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+<nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow" style="background: linear-gradient(180deg, #036666 0%, #579f62 100%);">
 
   <!-- Sidebar Toggle (Topbar) -->
   <button id="sidebarToggleTop" class="btn btn-link  rounded-circle mr-3">
@@ -64,7 +64,12 @@
     <!-- Nav Item - User Information -->
     <li class="nav-item dropdown no-arrow">
       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<<<<<<< HEAD
         <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth()->user()->name}}</span>
+=======
+        <span class="mr-2 d-none d-lg-inline  small">{{Auth()->user()->name}}</span>
+        <img class="img-profile rounded-circle" src="{{asset('storage/foto/'.Auth()->user()->profile->foto)}}">
+>>>>>>> 3052b5c68d05f82baa0b71187a87b1c832ac5af2
       </a>
       <!-- Dropdown - User Information -->
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

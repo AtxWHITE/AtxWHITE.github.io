@@ -25,11 +25,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //group route for admin
 Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], function () {
     // admin/home
-    Route::get('/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    Route::get('/', [HomeController::class, 'adminHome'])->name('admin.home');
+    Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('admin.dashboard');
     //profil
     Route::get('/profile/{id}', [ProfilController::class, 'index'])->name('admin.profile');
     Route::post('/updateProfil/{id}', [ProfilController::class, 'updateProfil'])->name('admin.profile.update');
     Route::resource('users', 'App\Http\Controllers\Admin\UserController');
+    //customer
+    Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
+    
 });
 
 Route::get('/user', function () {
