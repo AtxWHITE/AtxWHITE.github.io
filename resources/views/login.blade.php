@@ -20,7 +20,6 @@
 
     <title>Hello, world!</title>
 </head>
-<!-- //update -->
 
 <body>
     <section class="login d-flex">
