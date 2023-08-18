@@ -1,8 +1,8 @@
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
+<footer class="sticky-footer" style="background: linear-gradient(180deg, #036666 0%, #579f62 100%);">
   <div class="container my-auto">
     <div class="copyright text-center my-auto">
-      <span>Copyright &copy; <a href="https://github.com/Arfiyan/19" target="_blank">Seven Inc</a> {{date('Y')}}</span>
+      <span style="color: #9bfddd;">Copyright &copy; <a href="https://github.com/Arfiyan/19" style="color: white;" target="_blank">Seven Inc</a> {{date('Y')}}</span>
     </div>
   </div>
 </footer>
