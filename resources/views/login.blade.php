@@ -22,42 +22,30 @@
 <!-- //update -->
 
 <body>
-    <section class="login d-flex">
-        <div class="login-left w-50 h-100">
-            <div class="row justify-content-center align-items-center h-100">
-                <div class="col-6">
-                    <div class="header">
-                        <h1>Welcome back</h1>
-                        <p>Welcome back! Please enteer your details.</p>
-                    </div>
-                    <div class="login-form">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter Your Email">
-
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter Your Passsword">
-                        <a href="" class="text-decoration-none">Forgot password</a>
-                        <button class="signin">Sign In</button>
-                        <button class="signin-google">
-                            <img src="{{ asset('frontend/assets/image/logoG.png') }}" alt="">
-                            Sign In With Google</button>
-
-                        <span class="d-inline">Don't have an account? <a href=""
-                                class="d-inline text-decoration-none">Sign up for free</a></span>
-
-                    </div>
-                </div>
+  <section class="login d-flex">
+    <div class="login-left w-50 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-6">
+          <div class="header">
+            <h1>Welcome back</h1>
+            <p>Welcome back! Please enteer your details.</p>
+          </div>
+          <form method="POST" action="{{ url('login') }}">
+            @csrf
+            <div class="login-form">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" id="password" placeholder="Enter Your Passsword">
+              <a href="" class="text-decoration-none">Forgot password</a>
+              <button class="signin">Sign In</button>
+              <button class="signin-google">
+                <img src="{{ asset('frontend/assets/image/logoG.png') }}" alt="">
+                Sign In With Google</button>
+              <span class="d-inline">Don't have an account? <a href="" class="d-inline text-decoration-none">Sign up for free</a></span>
             </div>
+          </form>
         </div>
-
-</div>
-        <div class="login-right w-50 h-100">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{{ asset('frontend/assets/image/pijat1.jpeg') }}" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
       </div>
 
     </div>

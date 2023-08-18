@@ -4,55 +4,91 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <!-- Google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Style -->
+    <link rel="stylesheet" href="{{ asset('frontend/css/detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
 
-    <!-- my style -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
-
-    <title>Hello, world!</title>
+    <title>Detail Layanan</title>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-fixed w-100">
-    <div class="container">
-      <a class="navbar-detail" href="#">
-        <img src="{{ asset('frontend/assets/image/logo-70.png') }}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-3">
-        Pijat.in
-      </a>
-      </div>
-    </div>
-  </nav>
 
-<section id="hero">
-    <div class="container h-100">
-      <div class="row h-100">
-        <div class="col-md-6 hero-tagline my-auto">
-          <h1>Santai tubuh dan pikiran, biarkan pijatan mengalirkan kebahagiaan </h1>
-          <p><span class="fw-bold">Nikmati momen istimewa</span> untuk meremajakan tubuh dan pikiran di Oasis Pijat Sehat dan Relaksasi. Kami memiliki tim terlatih dan berpengalaman dalam memberikan layanan pijat berkualitas yang membantu Anda meraih ketenangan dan kesejahteraan.</p>
 
-          <button class="button-lg-primary">Temukan Rumah</button>
-          <a href="#"><img src="{{ asset('frontend/assets/image/arrow.png') }}" alt=""></a>
+    <div class="content">
+
+        <div class="container">
+
+
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+
+                    <div class="row align-items-center">
+                        <div class="col-lg-7 mb-5 mb-lg-0">
+                            <h3 class="mb-4">Full body massage.</h3>
+                            <p>Full body massage pijat atau massage di seluruh bagian tubuh, mulai dari kaki, tangan, pinggang, punggung, leher, dan kepala (tidak termasuk alat vital). Tujuan dan kegunaan full body massage adalah untuk mempertahankan kondisi tubuh supaya tetap bugar </p>
+                            <p><a href="#">Read more</a></p>
+
+
+                        </div>
+                        <div class="col-lg-4 ml-auto">
+                            <h2 class="mb-5">Isi Form Pemesanan !</h2>
+
+                            <form class="border-right pr-5 mb-5" method="post" id="contactForm" name="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" class="form-control" name="fname" id="fname" placeholder="First name">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Last name">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <textarea class="form-control" name="message" id="message" cols="30" rows="7" placeholder="Write your message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="submit" value="Pesan Sekarang" class="btn btn-primary rounded-0 py-2 px-4">
+                                        <span class="submitting"></span>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div id="form-message-warning mt-4"></div>
+                            <div id="form-message-success">
+                                Your message was sent, thank you!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <img src="{{ asset('frontend/assets/image/pijit.png') }}" alt="" class="position-absolute end-0 bottom-0 img-hero">
-      <img src="{{ asset('frontend/assets/image/accent.png') }}" alt="" class="accent-img h-100 position-absolute top-0 start-0">
     </div>
-  </section>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
 
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
