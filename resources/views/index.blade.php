@@ -65,15 +65,14 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="#">Profil</a></li>
                                 <li><a class="dropdown-item" href="#">Pengaturan</a></li>
-                                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Keluar</a>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Keluar</a>
                                 </li>
 
                             </ul>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-
+                        </a>
                     </div>
                     @else
                     <a href="{{ url('register') }}" class="text-decoration-none text-white me-3">DAFTAR</a>
@@ -242,17 +241,17 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="avatar">
-                            <img src="{{ asset('frontend/assets/image/orang2.png') }}" alt="Jane Smith" class="img-fluid rounded-circle">
+                            <img src="{{ asset('frontend/assets/image/orang1.jpeg') }}" alt="John Doe" class="img-fluid rounded-circle">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Jane Smith</h5>
-                            <p class="card-text">"Ut semper massa sed felis euismod, et faucibus risus accumsan."</p>
+                            <h5 class="card-title">John Doe</h5>
+                            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra urna sed mi sodales."</p>
                             <div class="rating">
                                 <span class="star">&#9733;</span>
                                 <span class="star">&#9733;</span>
                                 <span class="star">&#9733;</span>
                                 <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
+                                <span class="star">&#9734;</span>
                             </div>
                         </div>
                     </div>
@@ -275,7 +274,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Add more testimonials here -->
             </div>
         </div>
     </section>
@@ -288,13 +286,13 @@
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script>
-    -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+</script>
+-->
 </body>
 
 </html>
