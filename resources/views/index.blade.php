@@ -241,7 +241,7 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="avatar">
-                            <img src="{{ asset('frontend/assets/image/orang1.jpeg') }}" alt="John Doe" class="img-fluid rounded-circle">
+                            <img src="{{ asset('frontend/assets/image/orang2.png') }}" alt="John Doe" class="img-fluid rounded-circle">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">John Doe</h5>
