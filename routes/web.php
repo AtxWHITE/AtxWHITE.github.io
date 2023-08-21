@@ -33,7 +33,6 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], funct
     Route::resource('users', 'App\Http\Controllers\Admin\UserController');
     //customer
     Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
-    
 });
 
 Route::get('/user', function () {
@@ -48,7 +47,6 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/detail', function () {
+Route::get('/user/detail', function () {
     return view('detail');
 });
-
