@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-
+@section('title', 'Pijat.in || Report')
 @section('main-content')
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -8,67 +8,41 @@
         </div>
     </div>
     <div class="card-header py-4">
-        <h5 class="m-0 font-weight-bold text-primary float-left">Data Customer</h5>
-        <!-- <a href="" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Post Category</a> -->
+        <h5 class="m-0 font-weight-bold text-primary float-left">Data Reports</h5>
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            @if(count($user)>0)
             <table class="table table-bordered" id="post-category-dataTable" width="100%" cellspacing="0">
                 <thead style="background: linear-gradient(180deg, #036666 0%, #67B99A 100%);">
                     <tr style="color: white;">
+                        <!-- No -->
                         <th>No.</th>
-                        <!-- Nama -->
-                        <th>Nama Pengguna</th>
-                        <!-- Email -->
-                        <th>Email</th>
-                        <!-- No.Telp -->
-                        <th>No.Telp</th>
-                        <!-- Alamat -->
-                        <th>Daeraah Pengguna</th>
-                        <!-- KTP -->
-                        <th>KTP</th>
+                        <th>Status</th>
+                        <th>ID Pesanan</th>
+                        <th>Tanggal</th>
+                        <th>Daerah Pemesanan</th>
+                        <th>Detail</th>
+                        <!-- Aksi -->
                         <th>Aksi</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    @foreach($user as $data)
-                    <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$data->name}}</td>
-                        <td>{{$data->email}}</td>
-                        <td>{{$data->profile->no_hp}}</td>
-                        <td>{{$data->profile->alamat}}</td>
-                        <td>
-                            <img src="{{asset('storage/foto_ktp/'.$data->profile->ktp)}}" class="img-fluid" style="max-width: 80px" alt="{{$data->profile->ktp}}">
-                        </td>
-                        <!-- //button detail  -->
-                        <td>
-                            <a href="{{route('customers.show',$data->id)}}" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
-                            <!-- //button edit  -->
-                            <a href="{{route('customers.edit',$data->id)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                            <!-- //button delete  -->
-
-                            <form method="POST" action="{{route('customers.destroy',[$data->id])}}" style="display: inline-block">
-                                @csrf
-                                @method('delete')
-                                <button class="btn btn-danger btn-sm dltBtn" data-id={{$data->id}}><i class="fas fa-trash"></i></button>
-                            </form>
-                        </td>
+                    <td>1</td>
+                    <td>Selesai</td>
+                    <td>PSN-1</td>
+                    <td>12-12-2020</td>
+                    <td>Bandung</td>
+                    <td>Bandung</td>
+                    <td>Bandung</td>
 
 
-                    </tr>
-                    @endforeach
                 </tbody>
             </table>
-            @else
-            @endif
         </div>
     </div>
 </div>
-@endsection
 
+@endsection
 @push('styles')
 <link href="{{asset('backend/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
@@ -132,9 +106,14 @@
     })
 
 
-    $(document).ready(function() {
-        //filter databale 
-
-    })
+    // $(document).ready(function() {
+    //     //filter databale 
+    //     $('#post-category-dataTable').DataTable({
+    //         "columnDefs": [{
+    //             "orderable": false,
+    //             "targets": [3, 4]
+    //         }]
+    //     });
+    // })
 </script>
 @endpush

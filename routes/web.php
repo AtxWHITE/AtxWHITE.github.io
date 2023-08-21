@@ -33,8 +33,20 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], funct
     Route::resource('users', 'App\Http\Controllers\Admin\UserController');
     //customer
     Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
-    
+    //terapi
+    Route::resource('terapis', 'App\Http\Controllers\Admin\TerapisController');
+    // order 
+    Route::resource('orders', 'App\Http\Controllers\Admin\OrderController');
+    // reviews 
+    Route::resource('reviews', 'App\Http\Controllers\Admin\ReviewController');
+    // unsuspend
+    Route::resource('unsuspend', 'App\Http\Controllers\Admin\UnsuspendController');
+    // register
+    Route::resource('adminRegister', 'App\Http\Controllers\Admin\RegisterController');
+    // reports 
+    Route::resource('reports', 'App\Http\Controllers\Admin\ReportController');
 });
+
 
 Route::get('/user', function () {
     return view('index');
@@ -42,13 +54,12 @@ Route::get('/user', function () {
 
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
 Route::get('/register', function () {
     return view('register');
-});
+})->name('register');
 
 Route::get('/detail', function () {
     return view('detail');
 });
-
