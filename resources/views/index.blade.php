@@ -8,13 +8,16 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- my style -->
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+
+    <!-- responsive style -->
+    <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
 
     <!-- logo tittle bar -->
     <link rel="icon" href="{{ asset('frontend/assets/image/logo-70.png') }}" style="image/x-icon">
@@ -24,7 +27,7 @@
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-fixed w-100">
+    <nav class="navbar navbar-expand-lg navbar-dark nav-color position-fixed w-100">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('frontend/assets/image/logo-70.png') }}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-3">
@@ -96,7 +99,7 @@
                     <a href="#"><img src="{{ asset('frontend/assets/image/arrow.png') }}" alt=""></a>
                 </div>
             </div>
-            <img src="{{ asset('frontend/assets/image/rafiki.png') }}" alt="" class="position-absolute end-0 bottom-0 img-hero">
+            <img src="{{ asset('frontend/assets/image/rafiki.jpg') }}" alt="" class="position-absolute end-0 bottom-0 img-hero">
             <!-- <img src="{{ asset('frontend/assets/image/accent.png') }}" alt="" class="accent-img h-100 position-absolute top-0 start-0"> -->
         </div>
     </section>
@@ -210,7 +213,7 @@
     </section>
 
     <!-- Testimoni -->
-    <section class="testimonials py-5">
+    <section class="testimonials">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -278,10 +281,108 @@
         </div>
     </section>
 
+    <!-- Tampilan Contact -->
+    <section id="contact">
+        <div class="container-fluid overlay h-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>
+                            Butuh Konsultasi..?
+                            Silahkan kontak kami
+                            Kami Siap Membantu
+                        </h3>
+                        <div class="kontak">
+                            <h6>Kontak</h6>
+                            <div class="mb-3 d-flex align-items-center">
+                                <div>
+                                    <img src="{{ asset('frontend/assets/image/alamat-icon.png') }}" alt="">
+                                </div>
+                                <a href="#">Jl. Janti Gg. Arjuna No. 59, Karangjambe, Banguntapan, Bantul, Yogyakarta 55198</a>
+                            </div>
+
+                            <div class="mb-3">
+                                <img src="{{ asset('frontend/assets/image/telphone-icon.png') }}" alt="">
+                                <a href="#">0895-2900-2944</a>
+                            </div>
+
+                            <div class="mb-3">
+                                <img src="{{ asset('frontend/assets/image/email-icon.png') }}" alt="">
+                                <a href="#">pijatin@gmail.com</a>
+                            </div>
+                        </div>
+                        <div>
+                            <h6>Sosial Media</h6>
+                            <a href="#" class="me-3"><img src="{{ asset('frontend/assets/image/facebook-icon.png') }}" alt=""></a>
+                            <a href="#" class="me-3"><img src="{{ asset('frontend/assets/image/twiter-icon.png') }}" alt=""></a>
+                            <a href="#" class="me-3"><img src="{{ asset('frontend/assets/image/instagram-icon.png') }}" alt=""></a>
+                            <a href="#" class="linkpijatin">Pijat.in</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card-contact w-100">
+                            <form>
+                                <h2>ada pertanyaan..?</h2>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <label for="floatingInput" class="d-flex align-items-center">Masukan email anda disini...</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <label for="floatingInput" class="d-flex align-items-center">Pertanyaan Anda..</label>
+                                </div>
+                                <button type="submit" class="button-kontak">Kirim</button>
+                                </from>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tampilan Footer -->
+    <footer class="d-flex align-items-center position-relative">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 d-flex align-items-center">
+                        <img src="{{ asset('frontend/assets/image/logo-70.png')}}" alt="">
+                        <a href="#" class="ms-3">Pijat.in</a>
+                    </div>
+                    <div class="col-md-5 d-flex justify-content-evenly">
+                        <a href="#hero">Beranda</a>
+                        <a href="#layanan">Layanan</a>
+                        <a href="#fitur">Fitur</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+                <div class="row position-absolute copyright start-50 translate-middle">
+                    <div class="col-12">
+                        <p>Copyright bg Creative Academy All Right Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- Optional JavaScript; choose one of the two! -->
+
+    <script>
+        const navbar = document.getElementsByTagName('nav')[0];
+        window.addEventListener('scroll', function() {
+            console.log(window.scrollY);
+            if (window.scrollY > 1) {
+                navbar.classList.replace('bg-transparent', 'nav-color');
+            } else if (this.window.scrollY <= 0) {
+                navbar.classList.replace('nav-color', 'bg-transparent');
+            }
+        });
+    </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
