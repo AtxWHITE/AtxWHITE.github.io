@@ -21,6 +21,8 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// group route for terapis
+
 
 //group route for admin
 Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], function () {
@@ -46,11 +48,19 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], funct
     // reports 
     Route::resource('reports', 'App\Http\Controllers\Admin\ReportController');
 });
-
-
-Route::get('/user', function () {
-    return view('index');
+//prefik user=terapis
+Route::group(['prefix' => '/terapis', 'middleware' => ['auth', 'is_admin']], function () {
+    Route::get('/', [HomeController::class, 'terapisHome'])->name('terapis.home');
+    //profil
 });
+//midle where user
+Route::group(['prefix' => '/users', 'middleware' => ['auth', 'is_admin']], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('users.home');
+    //profil
+});
+// Route::get('/user', function () {
+//     return view('index');
+// })->name('user');
 
 Route::get('/login', function () {
     return view('login');
