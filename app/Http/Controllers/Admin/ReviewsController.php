@@ -14,7 +14,8 @@ class ReviewsController extends Controller
      */
     public function index()
     {
-        //
+        // return dd('ini adalah halaman index dari reviews');
+        return view('backend.reviews.index');
     }
 
     /**

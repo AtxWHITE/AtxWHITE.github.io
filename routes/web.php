@@ -40,7 +40,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], funct
     // order 
     Route::resource('orders', 'App\Http\Controllers\Admin\OrderController');
     // reviews 
-    Route::resource('reviews', 'App\Http\Controllers\Admin\ReviewController');
+    Route::resource('reviews', 'App\Http\Controllers\Admin\ReviewsController');
     // unsuspend
     Route::resource('unsuspend', 'App\Http\Controllers\Admin\UnsuspendController');
     // register

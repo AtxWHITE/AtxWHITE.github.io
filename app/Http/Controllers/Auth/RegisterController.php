@@ -120,7 +120,6 @@ class RegisterController extends Controller
             'tempat_lahir' => $data['tempat_lahir'],
             'tanggal_lahir' => $data['tanggal_lahir'],
         ]);
-        // jika is_admin =2 
         return $user;
     }
 }
