@@ -13,6 +13,29 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
+            <!-- form input  -->
+            <form action="{{route('customers.index')}}" method="GET" role="search">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group mb-3">
+                            <!-- <input type="text" class="form-control" name="name" placeholder="Search By Name" aria-label="Recipient's username" aria-describedby="basic-addon2"> -->
+                            <!-- <input type="text" class="form-control" name="name" placeholder="Search By Name" aria-label="Recipient's username" aria-describedby="basic-addon2" value="{{request()->input('name')}}"> -->
+                            <!-- <select name="" id=""></select> -->
+                            <select name="name" id="" class="form-control">
+                                <option value="">-- Pilih Nama --</option>
+                                @foreach($user as $data)
+                                <option value="{{$data->name}}">{{$data->profile->alamat}}</option>
+                                @endforeach
+                            </select>
+                            <div class="input-group-append">
+
+                                <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Cari</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
             @if(count($user)>0)
             <table class="table table-bordered" id="post-category-dataTable" width="100%" cellspacing="0">
                 <thead style="background: linear-gradient(180deg, #036666 0%, #67B99A 100%);">
