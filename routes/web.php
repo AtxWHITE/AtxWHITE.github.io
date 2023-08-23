@@ -118,6 +118,17 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(func
     // Route::resource('users', 'App\Http\Controllers\Admin\UserController');
     //customer
     Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
+
+});
+
+
+Route::get('/user', function () {
+    return view('index');
+
+    //terapi
+    Route::resource('terapis', 'App\Http\Controllers\Admin\TerapisController');
+    // order 
+
     Route::resource('orders', 'App\Http\Controllers\Admin\OrderController');
     Route::resource('reviews', 'App\Http\Controllers\Admin\ReviewsController');
     // unsuspend
