@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth:admin,terapis,customer,superadmin,finance', 'verified']); //ini yang diubah
     }
 
     /**
@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index'); //ini yang diubah
+        return view('home'); //ini yang diubah
     }
     public function adminHome()
     {

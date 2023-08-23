@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/user';
+    protected $redirectTo = '/home'; //ini yang diubah
 
     /**
      * Create a new controller instance.
@@ -57,19 +57,20 @@ class LoginController extends Controller
 
 
         if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
-
-            if (auth()->user()->is_admin == 1) {
-                return redirect()->route('admin.home');
-            } else if (auth()->user()->is_admin == 2) {
-                return redirect()->route('terapis.home');
-            } else if (auth()->user()->is_admin == 0) {
-                return redirect()->route('user.home');
-            } else {
-                dd('error');
-            }
+            return redirect()->route('home');
         } else {
             return redirect()->route('login')
                 ->with('error', 'Email-Address And Password Are Wrong.');
         }
+    }
+    //resend email
+    public function resendEmail()
+    {
+        if (auth()->user()->hasVerifiedEmail()) {
+            dd('email verified');
+            // return redirect()->route('home');
+        }
+        auth()->user()->sendEmailVerificationNotification();
+        return back()->with('message', 'Verification link sent!');
     }
 }

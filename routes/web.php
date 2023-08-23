@@ -16,65 +16,47 @@ use App\Http\Controllers\ProfilController;
 */
 
 Auth::routes();
+//verfikasi email
+Auth::routes(['verify' => true]);
+//login
 //logoutn
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+
+// /user 
+//route Logincontroller@resendEmail
+
+
+
+//group route for admin
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('admin', function () {
+        return dd('admin');
+    });
+});
+// //prefik user=terapis
+// Route::group(['prefix' => '/terapis', 'middleware' => ['auth', 'is_admin']], function () {
+//     Route::get('/', [HomeController::class, 'terapisHome'])->name('terapis.home');
+//     //profil
+// });
+// //midle where user
+// Route::group(['prefix' => '/users', 'middleware' => ['auth', 'is_admin']], function () {
+//     Route::get('/', [HomeController::class, 'index'])->name('users.home');
+//     //profil
+// });
 Route::get('/', function () {
     return view('index');
 });
 
-// /user 
-Route::get('/user', [HomeController::class, 'index'])->name('user.home');
-//route home
-// Route::get('/home', return view('index'))->name('home');
-Route::get('/home', function () {
-    return view('index');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// })->name('login');
 
-//group route for admin
-Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], function () {
-    // admin/home
-    Route::get('/', [HomeController::class, 'adminHome'])->name('admin.home');
-    Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('admin.dashboard');
-    //profil
-    Route::get('/profile/{id}', [ProfilController::class, 'index'])->name('admin.profile');
-    Route::post('/updateProfil/{id}', [ProfilController::class, 'updateProfil'])->name('admin.profile.update');
-    Route::resource('users', 'App\Http\Controllers\Admin\UserController');
-    //customer
-    Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
-    //terapi
-    Route::resource('terapis', 'App\Http\Controllers\Admin\TerapisController');
-    // order 
-    Route::resource('orders', 'App\Http\Controllers\Admin\OrderController');
-    // reviews 
-    Route::resource('reviews', 'App\Http\Controllers\Admin\ReviewsController');
-    // unsuspend
-    Route::resource('unsuspend', 'App\Http\Controllers\Admin\UnsuspendController');
-    // register
-    Route::resource('adminRegister', 'App\Http\Controllers\Admin\RegisterController');
-    // reports 
-    Route::resource('reports', 'App\Http\Controllers\Admin\ReportController');
-});
-//prefik user=terapis
-Route::group(['prefix' => '/terapis', 'middleware' => ['auth', 'is_admin']], function () {
-    Route::get('/', [HomeController::class, 'terapisHome'])->name('terapis.home');
-    //profil
-});
-//midle where user
-Route::group(['prefix' => '/users', 'middleware' => ['auth', 'is_admin']], function () {
-    Route::get('/', [HomeController::class, 'index'])->name('users.home');
-    //profil
-});
-// Route::get('/user', function () {
-//     return view('index');
-// })->name('user');
+// Route::get('/register', function () {
+//     return view('register');
+// })->name('register');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
-
-Route::get('/detail', function () {
-    return view('detail');
-});
+// Route::get('/detail', function () {
+//     return view('detail');
+// });
