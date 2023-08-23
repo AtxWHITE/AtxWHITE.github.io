@@ -37,7 +37,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], funct
     //profil
     Route::get('/profile/{id}', [ProfilController::class, 'index'])->name('admin.profile');
     Route::post('/updateProfil/{id}', [ProfilController::class, 'updateProfil'])->name('admin.profile.update');
-    Route::resource('users', 'App\Http\Controllers\Admin\UserController');
+    // Route::resource('users', 'App\Http\Controllers\Admin\UserController');
     //customer
     Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
 
@@ -75,9 +75,6 @@ Route::group(['prefix' => '/users', 'middleware' => ['auth', 'is_admin']], funct
 //     return view('index');
 // })->name('user');
 
-Route::get('/finance', function () {
-    return view('finance.index');
-});
 
 Route::get('/login', function () {
     return view('login');
@@ -90,3 +87,17 @@ Route::get('/register', function () {
 Route::get('/user/detail', function () {
     return view('detail');
 });
+
+// Route::get('/finance', function () {
+//     return view('finance.index');
+// });
+
+
+// return on folder finance index
+Route::get('/keuangan', function () {
+    return view('keuangan.index');
+}); 
+
+Route::get('/kangpijit', function () {
+    return view('terapis.index');
+}); 
