@@ -21,6 +21,11 @@
 </head>
 
 <body>
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     <section class="login d-flex">
         <div class="login-left w-50 h-100">
             <div class="row justify-content-center align-items-center h-100">
@@ -41,7 +46,11 @@
                             <button class="signin-google">
                                 <img src="{{ asset('frontend/assets/image/logoG.png') }}" alt="">
                                 Sign In With Google</button>
+
                             <span class="d-inline">Don't have an account? <a href="" class="d-inline text-decoration-none">Sign up for free</a></span>
+
+                            <span class="d-inline">Don't have an account? <a href="{{ url('register') }}" class="d-inline text-decoration-none">Sign up for free</a></span>
+
                         </div>
                     </form>
                 </div>

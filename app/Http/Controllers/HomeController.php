@@ -23,14 +23,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('index'); //ini yang diubah
     }
     public function adminHome()
-
     {
         $user = auth()->user()->with('profile')->first();
-        // dd($user);
         // dd('admin');
         return view('backend.index');
+    }
+    public function terapisHome()
+    {
+        $user = auth()->user()->with('profile')->first();
+        // dd('admin');
+        return view('home');
     }
 }

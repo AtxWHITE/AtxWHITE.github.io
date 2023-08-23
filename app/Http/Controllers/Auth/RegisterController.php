@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -30,8 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/user';
-
+    protected $redirectTo = '/login';
     /**
      * Create a new controller instance.
      *
@@ -62,14 +62,19 @@ class RegisterController extends Controller
             'no_hp' => ['required', 'string', 'max:255'],
             //foto
             'foto' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            // nik_ktp
+            'nik_ktp' => ['required', 'string', 'max:255'],
             //ktp
-            'ktp' => ['required', 'string', 'max:255'],
+            'ktp' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            // 'ktp' => ['required', 'string', 'max:255'],
             //tempat lahir
             'tempat_lahir' => ['required', 'string', 'max:255'],
             //tanggal lahir
             'tanggal_lahir' => ['required', 'string', 'max:255'],
             //status
             'status' => ['required', 'string', 'max:255'],
+            // is_admin
+            'is_admin' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -87,8 +92,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             // 'alamat' => $data['alamat'],
             'password' => Hash::make($data['password']),
-            //is_admin = 0
-            'is_admin' => 0,
+            'is_admin' => $data['is_admin'],
         ]);
         // if data foto 
         if (isset($data['foto'])) {
@@ -96,6 +100,12 @@ class RegisterController extends Controller
             $data['foto'] = $data['foto']->getClientOriginalName();
         } else {
             $data['foto'] = 'default.png';
+        }
+        if (isset($data['ktp'])) {
+            $data['ktp']->move(storage_path('app/public/foto'), $data['ktp']->getClientOriginalName());
+            $data['ktp'] = $data['ktp']->getClientOriginalName();
+        } else {
+            $data['ktp'] = 'default.png';
         }
 
         Profil::create([
@@ -105,11 +115,14 @@ class RegisterController extends Controller
             'jenis_kelamin' => $data['jenis_kelamin'],
             'no_hp' =>  $data['no_hp'],
             'foto' => $data['foto'],
+            'nik_ktp' => $data['nik_ktp'],
             'ktp' => $data['ktp'],
             'status' => $data['status'],
             'tempat_lahir' => $data['tempat_lahir'],
             'tanggal_lahir' => $data['tanggal_lahir'],
         ]);
+        session()->flash('success', 'Registration successful! You can now log in.');
+
         return $user;
     }
 }
