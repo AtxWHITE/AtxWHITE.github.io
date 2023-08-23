@@ -40,7 +40,6 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], funct
     Route::resource('users', 'App\Http\Controllers\Admin\UserController');
     //customer
     Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
-
 });
 
 
@@ -75,8 +74,8 @@ Route::group(['prefix' => '/users', 'middleware' => ['auth', 'is_admin']], funct
 //     return view('index');
 // })->name('user');
 
-Route::get('/finance', function () {
-    return view('finance.index');
+Route::get('/terapist', function () {
+    return view('terapist.index');
 });
 
 Route::get('/login', function () {

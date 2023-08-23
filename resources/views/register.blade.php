@@ -113,6 +113,7 @@
                                     <div class="form-outline mb-1">
                                         <input type="file" id="form3Example2cdg" class="form-control form-control-lg" name="foto" />
                                         <label class="form-label" for="form3Example4cdg">Foto</label>
+                                        <!-- Sija -->
                                     </div>
 
                                     <div class="form-check d-flex justify-content-center mb-5">
