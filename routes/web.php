@@ -40,6 +40,13 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], funct
     Route::resource('users', 'App\Http\Controllers\Admin\UserController');
     //customer
     Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
+
+});
+
+
+Route::get('/user', function () {
+    return view('index');
+
     //terapi
     Route::resource('terapis', 'App\Http\Controllers\Admin\TerapisController');
     // order 
@@ -57,6 +64,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], funct
 Route::group(['prefix' => '/terapis', 'middleware' => ['auth', 'is_admin']], function () {
     Route::get('/', [HomeController::class, 'terapisHome'])->name('terapis.home');
     //profil
+
 });
 //midle where user
 Route::group(['prefix' => '/users', 'middleware' => ['auth', 'is_admin']], function () {
@@ -67,6 +75,10 @@ Route::group(['prefix' => '/users', 'middleware' => ['auth', 'is_admin']], funct
 //     return view('index');
 // })->name('user');
 
+Route::get('/finance', function () {
+    return view('finance.index');
+});
+
 Route::get('/login', function () {
     return view('login');
 })->name('login');
@@ -75,6 +87,6 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/detail', function () {
+Route::get('/user/detail', function () {
     return view('detail');
 });
