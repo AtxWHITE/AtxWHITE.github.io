@@ -61,7 +61,7 @@
                         <a>
                             <!-- //name  -->
                             <a href="#" class="text-decoration-none text-white ms-2" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('storage/foto/'.Auth()->user()->profile->foto)}}" alt="" class="rounded-circle" width="40" height="40" aria-expanded="false">
+                                {{-- <img src="{{asset('storage/foto/'.Auth()->user()->profile->foto)}}" alt="" class="rounded-circle" width="40" height="40" aria-expanded="false"> --}}
 
                             </a>
                             <a href="#" class="text-decoration-none text-white ms-2" data-bs-toggle="dropdown" aria-expanded="false">{{ auth()->user()->name }}</a>
