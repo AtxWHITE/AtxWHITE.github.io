@@ -1,9 +1,59 @@
+:root {
+    --pr-color : #469D89;
+}
+
 @media screen and (max-width : 922px) {
     
 }
 
 @media screen and (max-width : 576px) {
-    
+    .hero-tagline h1{
+        font-size: 60px;
+    }
+
+    .img-hero{
+        width: 100%;
+        height: 100%;
+    }
+
+    h2{
+        font-size: 34px;
+    }
+
+    .sub-title{
+        font-size: 16px;
+    }
+
+    .card-layanan{
+        margin : 15px 0;
+    }
+
+    #search h2{
+        font-size: 42px;
+        line-height: 52px;
+    }
+
+    #search p{
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .input-cari .button-secondary{
+        width: 35%;
+        height: 69px;
+        border-radius: 0;
+    }
+
+    .input-cari .button-primary{
+        height: 69%;
+        width: 35%;
+        font-size: 20px;
+        border-radius: 0 0 0 10px;
+    }
+
+    .input-cari .form-control{
+        height: 60px !important;
+    }
 }
 
 @media screen and (max-width : 350px) {
