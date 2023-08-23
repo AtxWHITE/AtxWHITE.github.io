@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Update4ProfileToProfils extends Migration
+class CreateLayanansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class Update4ProfileToProfils extends Migration
      */
     public function up()
     {
-        Schema::table('profils', function (Blueprint $table) {
-            //nik_ktp
-            $table->string('nik_ktp')->unique()->after('ktp');
+        Schema::create('layanans', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +27,6 @@ class Update4ProfileToProfils extends Migration
      */
     public function down()
     {
-        Schema::table('profils', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('layanans');
     }
 }

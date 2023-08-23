@@ -21,6 +21,11 @@
 </head>
 
 <body>
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     <section class="login d-flex">
         <div class="login-left w-50 h-100">
             <div class="row justify-content-center align-items-center h-100">

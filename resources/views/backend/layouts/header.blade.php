@@ -31,7 +31,7 @@
 
     {{-- Home page --}}
     <li class="nav-item dropdown no-arrow mx-1">
-      <a class="nav-link dropdown-toggle" href="{{route('home')}}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="home" role="button">
+      <a class="nav-link dropdown-toggle" href="{{url('home')}}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="home" role="button">
         <i class="fas fa-home fa-fw">
 
         </i>
@@ -82,12 +82,12 @@
           Settings
         </a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+        <a class="dropdown-item" href="{{ url('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
           <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> {{ __('Logout') }}
         </a>
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
           @csrf
         </form>
       </div>

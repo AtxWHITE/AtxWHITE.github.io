@@ -20,9 +20,14 @@ Auth::routes();
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// group route for terapis
 
+// /user 
+Route::get('/user', [HomeController::class, 'index'])->name('user.home');
+//route home
+// Route::get('/home', return view('index'))->name('home');
+Route::get('/home', function () {
+    return view('index');
+});
 
 //group route for admin
 Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], function () {
