@@ -67,7 +67,7 @@
                             <form class="border-right pr-5 mb-5" method="post" id="contactForm" name="contactForm">
                                 <div class="row">
                                     <div class="col-md-12 form-group">
-                                        <a class="form-control" name="Jumlah Pemesan" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-weight: 700;">Jumlah Pemesan <img src="{{ asset('frontend/assets/image/right.png') }}" alt="" style="margin-left: 65%;"></a>
+                                        <a class="form-control" name="Jumlah Pemesan" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-weight: 700;">Jumlah Pemesan <img src="{{ asset('frontend/assets/image/right.png') }}" alt="" class="rounded float-end"></a>
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -100,38 +100,6 @@
                                                         </div>
                                                     </div>
 
-                                                    <script>
-                                                        const minusButton = document.getElementById('minus');
-                                                        const plusButton = document.getElementById('plus');
-                                                        const inputField = document.getElementById('input');
-                                                        const minus1Button = document.getElementById('minus1');
-                                                        const plus1Button = document.getElementById('plus1');
-                                                        const input1Field = document.getElementById('input1');
-
-                                                        minusButton.addEventListener('click', event => {
-                                                            event.preventDefault();
-                                                            const currentValue = Number(inputField.value) || 0;
-                                                            inputField.value = currentValue - 1;
-                                                        });
-
-                                                        plusButton.addEventListener('click', event => {
-                                                            event.preventDefault();
-                                                            const currentValue = Number(inputField.value) || 0;
-                                                            inputField.value = currentValue + 1;
-                                                        });
-
-                                                        minus1Button.addEventListener('click', event => {
-                                                            event.preventDefault();
-                                                            const currentValue = Number(input1Field.value) || 0;
-                                                            input1Field.value = currentValue - 1;
-                                                        });
-
-                                                        plus1Button.addEventListener('click', event => {
-                                                            event.preventDefault();
-                                                            const currentValue = Number(input1Field.value) || 0;
-                                                            input1Field.value = currentValue + 1;
-                                                        });
-                                                    </script>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                         <button type="button" class="btn btn-primary">Save changes</button>
@@ -141,12 +109,86 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 form-group">
-                                        <input type="text" class="form-control" name="lname" id="lname" placeholder="Durasi Waktu">
+                                        <a class="form-control" name="durasiwaktu" data-bs-toggle="modal" data-bs-target="#durasiModal" style="font-weight: 700;">Durasi Waktu <img src="{{ asset('frontend/assets/image/right.png') }}" alt="" class="rounded float-end"></a>
+                                        <div class="modal fade" id="durasiModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Durasi Waktu</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="container">
+                                                        <div class="row row-cols-2" style="margin: 5% 0% 5% 0%;">
+                                                            <div class="col-4">
+                                                                <img src="{{ asset('frontend/assets/image/Vector.png') }}" width="20px" class="img-fluid" alt=""> 30 Menit
+                                                            </div>
+                                                            <div class="col-8">
+                                                                <button id="minus2">−</button>
+                                                                <input type="number" class="text-center" value="0" id="input2" />
+                                                                <button id="plus2">+</button>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <img src="{{ asset('frontend/assets/image/Vector.png') }}" alt="" width="20px" class="img-fluid"> 60 Menit
+                                                            </div>
+                                                            <div class="col-8">
+                                                                <button id="minus3">−</button>
+                                                                <input type="number" class="text-center" value="0" id="input3" />
+                                                                <button id="plus3">+</button>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <img src="{{ asset('frontend/assets/image/Vector.png') }}" alt="" width="20px" class="img-fluid"> 90 Menit
+                                                            </div>
+                                                            <div class="col-8">
+                                                                <button id="minus4">−</button>
+                                                                <input type="number" class="text-center" value="0" id="input4" />
+                                                                <button id="plus4">+</button>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <img src="{{ asset('frontend/assets/image/Vector.png') }}" alt="" width="20px" class="img-fluid"> 120 Menit
+                                                            </div>
+                                                            <div class="col-8">
+                                                                <button id="minus5">−</button>
+                                                                <input type="number" class="text-center" value="0" id="input5" />
+                                                                <button id="plus5">+</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 form-group">
-                                        <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                                        <a class="form-control" name="layanantambahan" data-bs-toggle="modal" data-bs-target="#layananModal" style="font-weight: 700;">Layanan Tambahan <img src="{{ asset('frontend/assets/image/right.png') }}" alt="" class="rounded float-end"></a>
+                                        <div class="modal fade" id="layananModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Layanan Tambahan</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="container">
+                                                        <div class="row row-cols-2" style="margin: 5% 0% 5% 0%;">
+                                                            <div class="col-4">
+                                                                <img src="{{ asset('frontend/assets/image/Vector.png') }}" alt=""> Kerokan
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <img src="{{ asset('frontend/assets/image/Vector.png') }}" alt=""> Kerokan
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -181,6 +223,98 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+        const minusButton = document.getElementById('minus');
+        const plusButton = document.getElementById('plus');
+        const inputField = document.getElementById('input');
+        const minus1Button = document.getElementById('minus1');
+        const plus1Button = document.getElementById('plus1');
+        const input1Field = document.getElementById('input1');
+        const minus2Button = document.getElementById('minus2');
+        const plus2Button = document.getElementById('plus2');
+        const input2Field = document.getElementById('input2');
+        const minus3Button = document.getElementById('minus3');
+        const plus3Button = document.getElementById('plus3');
+        const input3Field = document.getElementById('input3');
+        const minus4Button = document.getElementById('minus4');
+        const plus4Button = document.getElementById('plus4');
+        const input4Field = document.getElementById('input4');
+        const minus5Button = document.getElementById('minus5');
+        const plus5Button = document.getElementById('plus5');
+        const input5Field = document.getElementById('input5');
+
+        minusButton.addEventListener('click', event => {
+            event.preventDefault();
+            const currentValue = Number(inputField.value) || 0;
+            inputField.value = currentValue - 1;
+        });
+
+        plusButton.addEventListener('click', event => {
+            event.preventDefault();
+            const currentValue = Number(inputField.value) || 0;
+            inputField.value = currentValue + 1;
+        });
+
+        minus1Button.addEventListener('click', event => {
+            event.preventDefault();
+            const currentValue = Number(input1Field.value) || 0;
+            input1Field.value = currentValue - 1;
+        });
+
+        plus1Button.addEventListener('click', event => {
+            event.preventDefault();
+            const currentValue = Number(input1Field.value) || 0;
+            input1Field.value = currentValue + 1;
+        });
+        minus2Button.addEventListener('click', event => {
+            event.preventDefault();
+            const currentValue = Number(input2Field.value) || 0;
+            input2Field.value = currentValue - 1;
+        });
+
+        plus2Button.addEventListener('click', event => {
+            event.preventDefault();
+            const currentValue = Number(input2Field.value) || 0;
+            input2Field.value = currentValue + 1;
+        });
+
+        minus3Button.addEventListener('click', event => {
+            event.preventDefault();
+            const currentValue = Number(input3Field.value) || 0;
+            input3Field.value = currentValue - 1;
+        });
+
+        plus3Button.addEventListener('click', event => {
+            event.preventDefault();
+            const currentValue = Number(input3Field.value) || 0;
+            input3Field.value = currentValue + 1;
+        });
+
+        minus4Button.addEventListener('click', event => {
+            event.preventDefault();
+            const currentValue = Number(input4Field.value) || 0;
+            input4Field.value = currentValue - 1;
+        });
+
+        plus4Button.addEventListener('click', event => {
+            event.preventDefault();
+            const currentValue = Number(input4Field.value) || 0;
+            input4Field.value = currentValue + 1;
+        });
+
+        minus5Button.addEventListener('click', event => {
+            event.preventDefault();
+            const currentValue = Number(input5Field.value) || 0;
+            input5Field.value = currentValue - 1;
+        });
+
+        plus5Button.addEventListener('click', event => {
+            event.preventDefault();
+            const currentValue = Number(input5Field.value) || 0;
+            input5Field.value = currentValue + 1;
+        });
+    </script>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 </script>

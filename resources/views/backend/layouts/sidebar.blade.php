@@ -24,7 +24,7 @@
   <!-- Heading -->
   <div class="sidebar-heading" style="margin-bottom: 5px;">
     <p style="color: #15311e;">
-      Meenu Master
+      Menu Master
     </p>
   </div>
   <!-- //hr  -->
@@ -33,26 +33,26 @@
 
 
   <!-- Order -->
-  <li class="nav-item">
-    <a class="nav-link" href="">
+  <li class="nav-item {{Request::is('admin/orders') ? 'active' : ''}}">
+    <a class="nav-link" href="{{route('orders.index')}}">
       <i class="fas fa-cart-arrow-down" style=""></i>
       <span>Order</span></a>
   </li>
   <!-- Reviews -->
-  <li class="nav-item">
-    <a class="nav-link" href="">
+  <li class="nav-item {{Request::is('admin/reviews') ? 'active' : ''}}">
+    <a class="nav-link" href="{{route('reviews.index')}}">
       <i class="fas fa-star" style=""></i>
       <span>Reviews</span></a>
   </li>
   <!-- Unsuspend -->
-  <li class="nav-item">
-    <a class="nav-link" href="">
+  <li class="nav-item {{Request::is('admin/unsuspend') ? 'active' : ''}}">
+    <a class="nav-link" href="{{route('unsuspend.index')}}">
       <i class="fas fa-user-check" style=""></i>
       <span>Unsuspend</span></a>
   </li>
   <!-- Register -->
-  <li class="nav-item">
-    <a class="nav-link" href="">
+  <li class="nav-item {{Request::is('admin/register') ? 'active' : ''}}">
+    <a class="nav-link" href="{{route('adminRegister.index')}}">
       <i class="fas fa-user-plus" style=""></i>
       <span>Register</span></a>
   </li>
@@ -66,8 +66,8 @@
       <span>Customers</span></a>
   </li>
   <!-- //data terapis icon database  -->
-  <li class="nav-item">
-    <a class="nav-link" href="">
+  <li class="nav-item {{Request::is('admin/terapis') ? 'active' : ''}}">
+    <a class="nav-link" href="{{route('terapis.index')}}">
       <i class="fas fa-database" style=""></i>
       <span>Terapis</span></a>
   </li>
@@ -89,8 +89,8 @@
   </div>
 
   <!-- Laporan -->
-  <li class="nav-item">
-    <a class="nav-link" href="">
+  <li class="nav-item {{Request::is('admin/reports') ? 'active' : ''}}">
+    <a class="nav-link" href="{{route('reports.index')}}">
       <i class="fas fa-file-alt" style=""></i>
       <span>Laporan</span></a>
   </li>
