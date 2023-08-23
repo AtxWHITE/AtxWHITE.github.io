@@ -27,13 +27,13 @@ class HomeController extends Controller
     }
     public function adminHome()
     {
-        $user = auth()->user()->with('profile')->first();
+        $user = auth()->user();
         // dd('admin');
         return view('backend.index');
     }
     public function terapisHome()
     {
-        $user = auth()->user()->with('profile')->first();
+        $user = auth()->user();
         // dd('admin');
         return view('home');
     }
