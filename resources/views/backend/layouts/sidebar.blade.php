@@ -13,7 +13,7 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="nav-item {{Request::is('admin/dashboard') ? 'active' : ''}}">
-    <a class="nav-link" href="{{route('admin.dashboard')}}">
+    <a class="nav-link" href="{{route('superadmin.dashboard')}}">
       <i class="fas fa-fw fa-tachometer-alt" style=""></i>
       <span>Dashboard</span></a>
   </li>
@@ -67,7 +67,8 @@
   </li>
   <!-- //data terapis icon database  -->
   <li class="nav-item {{Request::is('admin/terapis') ? 'active' : ''}}">
-    <a class="nav-link" href="{{route('terapis.index')}}">
+    {{-- <a class="nav-link" href="{{route('terapis.index')}}"> --}}
+      <a class="nav-link" href="#">
       <i class="fas fa-database" style=""></i>
       <span>Terapis</span></a>
   </li>
