@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Middleware\CheckUserRole;
 
 class LoginController extends Controller
 {
@@ -38,39 +39,20 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    public function login(Request $request)
 
+    protected function authenticated(Request $request, $user)
     {
-
-        $input = $request->all();
-
-
-
-        $this->validate($request, [
-
-            'email' => 'required|email',
-
-            'password' => 'required',
-
-        ]);
-
-
-
-        if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
-            return redirect()->route('home');
-        } else {
-            return redirect()->route('login')
-                ->with('error', 'Email-Address And Password Are Wrong.');
+        switch ($user->role) {
+            case 'superadmin':
+                return redirect('/superadmin/dashboard');
+            case 'admin':
+                return redirect('/admin/dashboard');
+            case 'finance':
+                return redirect('/finance/dashboard');
+            case 'customer':
+                return redirect('/customer/dashboard');
+            case 'terapi':
+                return redirect('/terapi/dashboard');
         }
-    }
-    //resend email
-    public function resendEmail()
-    {
-        if (auth()->user()->hasVerifiedEmail()) {
-            dd('email verified');
-            // return redirect()->route('home');
-        }
-        auth()->user()->sendEmailVerificationNotification();
-        return back()->with('message', 'Verification link sent!');
     }
 }

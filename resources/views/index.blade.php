@@ -61,7 +61,7 @@
                         <a>
                             <!-- //name  -->
                             <a href="#" class="text-decoration-none text-white ms-2" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('storage/foto/'.Auth()->user()->profile->foto)}}" alt="" class="rounded-circle" width="40" height="40" aria-expanded="false">
+                                {{-- <img src="{{asset('storage/foto/'.Auth()->user()->profile->foto)}}" alt="" class="rounded-circle" width="40" height="40" aria-expanded="false"> --}}
 
                             </a>
                             <a href="#" class="text-decoration-none text-white ms-2" data-bs-toggle="dropdown" aria-expanded="false">{{ auth()->user()->name }}</a>
@@ -86,6 +86,7 @@
         </div>
     </nav>
 
+
     <!-- hero section -->
     <section id="hero">
         <div class="container h-100">
@@ -98,7 +99,7 @@
                     <button class="button-lg-primary">Tanya Kami</button>
                     <a href="#"><img src="{{ asset('frontend/assets/image/arrow.png') }}" alt=""></a>
                 </div>
-            </div>
+            </div class="half-circle">
             <img src="{{ asset('frontend/assets/image/rafiki.jpg') }}" alt="" class="position-absolute end-0 bottom-0 img-hero">
             <!-- <img src="{{ asset('frontend/assets/image/accent.png') }}" alt="" class="accent-img h-100 position-absolute top-0 start-0"> -->
         </div>
@@ -382,7 +383,6 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->

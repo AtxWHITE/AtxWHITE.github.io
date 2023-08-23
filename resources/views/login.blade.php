@@ -46,7 +46,11 @@
                             <button class="signin-google">
                                 <img src="{{ asset('frontend/assets/image/logoG.png') }}" alt="">
                                 Sign In With Google</button>
+
+                            <span class="d-inline">Don't have an account? <a href="" class="d-inline text-decoration-none">Sign up for free</a></span>
+
                             <span class="d-inline">Don't have an account? <a href="{{ url('register') }}" class="d-inline text-decoration-none">Sign up for free</a></span>
+
                         </div>
                     </form>
                 </div>
