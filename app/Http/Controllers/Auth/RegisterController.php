@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
+
 
 class RegisterController extends Controller
 {
@@ -121,15 +121,8 @@ class RegisterController extends Controller
             'tempat_lahir' => $data['tempat_lahir'],
             'tanggal_lahir' => $data['tanggal_lahir'],
         ]);
-        // jika is_admin =2 
-        // return login dengan status success
-
-
         session()->flash('success', 'Registration successful! You can now log in.');
 
         return $user;
-
-
-        // return $user;
     }
 }

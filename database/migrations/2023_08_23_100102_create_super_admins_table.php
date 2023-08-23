@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfilsTable extends Migration
+class CreateSuperAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateProfilsTable extends Migration
      */
     public function up()
     {
-        Schema::create('profils', function (Blueprint $table) {
+        Schema::create('super_admins', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->string('nama_lengkap');
             $table->string('jenis_kelamin');
             $table->string('no_hp');
             $table->string('alamat');
@@ -28,9 +26,12 @@ class CreateProfilsTable extends Migration
             $table->string('tempat_lahir')->nullable();
             // Tanggal Lahir-
             $table->date('tanggal_lahir')->nullable();
+            //user id
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            //foreign key
-            // $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');
+        });
+        Schema::table('super_admins', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -41,6 +42,6 @@ class CreateProfilsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profils');
+        Schema::dropIfExists('super_admins');
     }
 }
