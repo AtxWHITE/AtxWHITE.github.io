@@ -66,6 +66,14 @@
 
                             <form class="border-right pr-5 mb-5" method="post" id="contactForm" name="contactForm">
                                 <div class="row">
+                                    <div class="col-md-12 form-group" style="color: white; font-weight:700;">
+                                        <img src="{{ asset('frontend/assets/image/Vecctor2.png') }}" style="margin-right: 2%;" alt=""> Lokasi Saya
+                                    </div>
+                                    <div class="col-md-12 form-group" style="color: white;">
+                                        Karangjambe, Gg. Arjuna No.59, Jaranan, <br>
+                                        Banguntapan, Kec. Banguntapan, Kabupaten <a href=""><img src="{{ asset('frontend/assets/image/right.png') }}" alt="" class="rounded float-end"></a><br>
+                                        Bantul, Daerah Istimewa Yogyakarta 55198
+                                    </div>
                                     <div class="col-md-12 form-group">
                                         <a class="form-control" name="Jumlah Pemesan" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-weight: 700;">Jumlah Pemesan <img src="{{ asset('frontend/assets/image/right.png') }}" alt="" class="rounded float-end"></a>
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -174,11 +182,37 @@
                                                     </div>
                                                     <div class="container">
                                                         <div class="row row-cols-2" style="margin: 5% 0% 5% 0%;">
-                                                            <div class="col-4">
-                                                                <img src="{{ asset('frontend/assets/image/Vector.png') }}" alt=""> Kerokan
+                                                            <div class="form-check col-2">
+                                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                                <img src="{{ asset('frontend/assets/image/Vector1.png') }}" alt="" class="rounded float-end">
+                                                                </label>
                                                             </div>
-                                                            <div class="col-4">
-                                                                <img src="{{ asset('frontend/assets/image/Vector.png') }}" alt=""> Kerokan
+                                                            <div class="col-10">
+                                                                Kerokan
+                                                            </div>
+                                                            <div class="form-check col-2">
+                                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                                <img src="{{ asset('frontend/assets/image/Vector1.png') }}" alt="" class="rounded float-end">
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-10">
+                                                                Lulur
+                                                            </div>
+                                                            <div class="form-check col-2">
+                                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                                <img src="{{ asset('frontend/assets/image/Vector1.png') }}" alt="" class="rounded float-end">
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-10">
+                                                                Totok Wajah
+                                                            </div>
+                                                            <div class="form-check col-2">
+                                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                                <img src="{{ asset('frontend/assets/image/Vector1.png') }}" alt="" class="rounded float-end">
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-10">
+                                                                Refleksi
                                                             </div>
                                                         </div>
                                                     </div>

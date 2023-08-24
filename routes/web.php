@@ -50,14 +50,79 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Route::get('/login', function () {
-//     return view('login');
-// })->name('login');
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
 
-// Route::get('/register', function () {
-//     return view('register');
-// })->name('register');
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
 
 // Route::get('/detail', function () {
 //     return view('detail');
 // });
+
+// // Route::get('/finance', function () {
+// //     return view('finance.index');
+// // });
+
+
+// // return on folder finance index
+// Route::get('/keuangan', function () {
+//     return view('keuangan.index');
+// }); 
+
+// Route::get('/kangpijit', function () {
+//     return view('terapis.index');
+// }); 
+
+
+
+
+
+
+Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(function () {
+    // Superadmin routes
+    // 
+    Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('superadmin.dashboard');
+    //profil
+    Route::get('/profile/{id}', [ProfilController::class, 'index'])->name('admin.profile');
+    Route::post('/updateProfil/{id}', [ProfilController::class, 'updateProfil'])->name('admin.profile.update');
+    // Route::resource('users', 'App\Http\Controllers\Admin\UserController');
+    //customer
+    Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
+});
+
+
+Route::get('/user', function () {
+    return view('index');
+
+    //terapi
+    Route::resource('terapis', 'App\Http\Controllers\Admin\TerapisController');
+    // order 
+
+    Route::resource('orders', 'App\Http\Controllers\Admin\OrderController');
+    Route::resource('reviews', 'App\Http\Controllers\Admin\ReviewsController');
+    // unsuspend
+    Route::resource('unsuspend', 'App\Http\Controllers\Admin\UnsuspendController');
+    // register
+    Route::resource('adminRegister', 'App\Http\Controllers\Admin\RegisterController');
+    // reports 
+    Route::resource('reports', 'App\Http\Controllers\Admin\ReportController');
+});
+
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
+    // Admin routes
+});
+
+Route::middleware(['auth', 'role:finance'])->prefix('finance')->group(function () {
+    // Finance routes
+});
+
+Route::middleware(['auth', 'role:customer'])->prefix('customer')->group(function () {
+    // Customer routes
+});
+
+Route::middleware(['auth', 'role:terapi'])->prefix('terapi')->group(function () {
+    // Terapi routes
+});
