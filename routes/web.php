@@ -18,9 +18,9 @@ use App\Http\Controllers\ProfilController;
 
 Auth::routes();
 // //logoutn
-// Route::get('/', function () {
-//     return view('index');
-// });
+Route::get('/', function () {
+    return view('index');
+});
 
 // // /user 
 // Route::get('/user', [HomeController::class, 'index'])->name('user.home');
@@ -118,18 +118,10 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(func
     // Route::resource('users', 'App\Http\Controllers\Admin\UserController');
     //customer
     Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
-
-});
-
-
-Route::get('/user', function () {
-    return view('index');
-
-    //terapi
     Route::resource('terapis', 'App\Http\Controllers\Admin\TerapisController');
     // order 
-
     Route::resource('orders', 'App\Http\Controllers\Admin\OrderController');
+    // reviews 
     Route::resource('reviews', 'App\Http\Controllers\Admin\ReviewsController');
     // unsuspend
     Route::resource('unsuspend', 'App\Http\Controllers\Admin\UnsuspendController');
@@ -138,8 +130,27 @@ Route::get('/user', function () {
     // reports 
     Route::resource('reports', 'App\Http\Controllers\Admin\ReportController');
 
-    
 });
+
+
+// Route::get('/user', function () {
+//     return view('index');
+
+//     //terapi
+//     Route::resource('terapis', 'App\Http\Controllers\Admin\TerapisController');
+//     // order 
+
+//     Route::resource('orders', 'App\Http\Controllers\Admin\OrderController');
+//     Route::resource('reviews', 'App\Http\Controllers\Admin\ReviewsController');
+//     // unsuspend
+//     Route::resource('unsuspend', 'App\Http\Controllers\Admin\UnsuspendController');
+//     // register
+//     Route::resource('adminRegister', 'App\Http\Controllers\Admin\RegisterController');
+//     // reports 
+//     Route::resource('reports', 'App\Http\Controllers\Admin\ReportController');
+
+    
+// });
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     // Admin routes
