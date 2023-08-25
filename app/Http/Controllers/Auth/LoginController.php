@@ -28,8 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home'; //ini yang diubah
-
+  
     /**
      * Create a new controller instance.
      *
@@ -53,6 +52,8 @@ class LoginController extends Controller
                 return redirect('/');
             case 'terapi':
                 return redirect('/terapi/dashboard');
+            default:
+                return redirect('/');
         }
     }
 }
