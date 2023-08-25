@@ -61,7 +61,7 @@
                         <a>
                             <!-- //name  -->
                             <a href="#" class="text-decoration-none text-white ms-2" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('storage/foto/'.Auth()->user()->profile->foto)}}" alt="" class="rounded-circle" width="40" height="40" aria-expanded="false">
+                                {{-- <img src="{{asset('storage/foto/'.Auth()->user()->profile->foto)}}" alt="" class="rounded-circle" width="40" height="40" aria-expanded="false"> --}}
 
                             </a>
                             <a href="#" class="text-decoration-none text-white ms-2" data-bs-toggle="dropdown" aria-expanded="false">{{ auth()->user()->name }}</a>
@@ -78,8 +78,8 @@
                         </a>
                     </div>
                     @else
-                    <a href="{{ url('register') }}" class="text-decoration-none text-white me-3">DAFTAR</a>
-                    <a href="{{ url('login') }}" class="text-decoration-none text-white">MASUK</a>
+                    <a href="{{ url('register') }}" class="button-primary">Daftar</a>
+                    <a href="{{ url('login') }}" class="button-secondary">Masuk</a>
                     @endif
                 </div>
             </div>
@@ -89,21 +89,56 @@
 
     <!-- hero section -->
     <section id="hero">
-        <div class="container h-100">
-            <div class="row h-100">
-                <div class="col-md-6 hero-tagline my-auto">
-                    <h1>Jasa Pijat dan Massage Panggilan Terpercaya</h1>
-                    <p><span class="fw-bold">Pijat.in</span> mengingatkan agar selalu menjaga kesehatan pada tubuh kita
-                        sendiri dengan cara yang sangat mudah, yaitu dengan metode Massage, Spa & Pijat.</p>
+        <div class="slider-container h-100">
+            <div class="slider h-100">
+                <div class="slide h-100">
+                    <div class="container h-100">
+                        <div class="row h-100">
+                            <div class="col-md-6 hero-tagline my-auto">
+                                <h1>Jasa Pijat dan Massage Panggilan Terpercaya</h1>
+                                <p><span class="fw-bold">Pijat.in</span> mengingatkan agar selalu menjaga kesehatan pada tubuh kita
+                                    sendiri dengan cara yang sangat mudah, yaitu dengan metode Massage, Spa & Pijat.</p>
 
-                    <button class="button-lg-primary">Tanya Kami</button>
-                    <a href="#"><img src="{{ asset('frontend/assets/image/arrow.png') }}" alt=""></a>
+                                <button class="button-lg-primary">Tanya Kami</button>
+                                <a href="#"><img src="{{ asset('frontend/assets/image/arrow.png') }}" alt=""></a>
+                            </div>
+                        </div class="half-circle">
+                        <img src="{{ asset('frontend/assets/image/rafiki.png') }}" alt="" class="position-absolute end-0 bottom-0 img-hero">
+                    </div>
                 </div>
-            </div class="half-circle">
-            <img src="{{ asset('frontend/assets/image/rafiki.jpg') }}" alt="" class="position-absolute end-0 bottom-0 img-hero">
-            <!-- <img src="{{ asset('frontend/assets/image/accent.png') }}" alt="" class="accent-img h-100 position-absolute top-0 start-0"> -->
+                <div class="slide h-100">
+                    <div class="container h-100">
+                        <div class="row h-100">
+                            <div class="col-md-6 hero-tagline my-auto">
+                                <h1>Kehangatan yang Luar Biasa!</h1>
+                                <p><span class="fw-bold">Pijat.in</span> Nikmati sentuhan ahli kami yang menghilangkan segala ketegangan dan membawa kedamaian sejati. Hore!</p>
+
+                                <button class="button-lg-primary">Tanya Kami</button>
+                                <a href="#"><img src="{{ asset('frontend/assets/image/arrow.png') }}" alt=""></a>
+                            </div>
+                        </div class="half-circle">
+                        <img src="{{ asset('frontend/assets/image/rafiki.png') }}" alt="" class="position-absolute end-0 bottom-0 img-hero">
+                    </div>
+                </div>
+                <div class="slide h-100">
+                    <div class="container h-100">
+                        <div class="row h-100">
+                            <div class="col-md-6 hero-tagline my-auto">
+                                <h1>Sentuhan Sempurna!</h1>
+                                <p><span class="fw-bold">Pijat.in</span> Keseimbangan antara ketenangan dan kebahagiaan. Terima kasih, kami merasa segar kembali! Hore!</p>
+
+                                <button class="button-lg-primary">Tanya Kami</button>
+                                <a href="#"><img src="{{ asset('frontend/assets/image/arrow.png') }}" alt=""></a>
+                            </div>
+                        </div class="half-circle">
+                        <img src="{{ asset('frontend/assets/image/rafiki.png') }}" alt="" class="position-absolute end-0 bottom-0 img-hero">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+
 
     <!-- Layanan Section -->
     <section id="layanan">
@@ -383,6 +418,21 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+    <script>
+        const slider = document.querySelector('.slider');
+        let counter = 1;
+
+        setInterval(() => {
+            slider.style.transition = 'transform 0.5s ease-in-out';
+            slider.style.transform = 'translateX(' + (-counter * 100) + '%)';
+            counter++;
+
+            if (counter >= 3) {
+                counter = 0;
+            }
+        }, 3000);
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
