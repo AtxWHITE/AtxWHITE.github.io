@@ -66,25 +66,36 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        User::create([
-            'role' => 'customer',
-            'email' => $data['email'],
-            'password' => Hash::make($data['password'])
-        ]);
-        //customers = model customers
-        $customers = Customers::create([
-            'nama' => $data['name'],
-            'jenis_kelamin' => 'Laki-laki',
-            'no_hp' => '08123456789',
-            'alamat' => 'Jl. Jalan',
-            'foto' => 'default.png',
-            'nik' => '1234567890123456',
-            'foto_ktp' => 'default.png',
-            'user_id' => User::latest()->first()->id,
-            'status' => 'aktif',
-            'tempat_lahir' => 'Bandung',
-            'tanggal_lahir' => '2000-01-01',
-        ]);
-        return redirect()->route('login')->with('success', 'Register Berhasil');
+        //jika data role = customers
+        if ($data['role'] == 'customer') {
+            User::create([
+                'role' => $data['role'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password'])
+            ]);
+            //customers = model customers
+            $customers = new Customers();
+            $customers->nama = $data['name'];
+            $customers->jenis_kelamin = $data['jenis_kelamin'];
+            $customers->status = $data['status'];
+            $customers->no_hp = $data['no_hp'];
+            $customers->alamat = $data['alamat'];
+            $customers->nik = $data['nik_ktp'];
+            $customers->user_id = User::latest()->first()->id;
+            $customers->status =  $data['status'];
+            $customers->tempat_lahir = $data['tempat_lahir'];
+            $customers->tanggal_lahir = $data['tanggal_lahir'];
+
+            if ($data['foto']) {
+                $data['foto']->move(storage_path('app/public/foto'), $data['foto']->getClientOriginalName());
+                $customers->foto = $data['foto']->getClientOriginalName();
+            };
+            if ($data['ktp']) {
+                $data['ktp']->move(storage_path('app/public/ktp'), $data['ktp']->getClientOriginalName());
+                $customers->foto_ktp = $data['ktp']->getClientOriginalName();
+            }
+            $customers->save();
+        }
+        return redirect('/')->with('success', 'Berhasil Mendaftar, Silahkan verifikasi email anda');
     }
 }

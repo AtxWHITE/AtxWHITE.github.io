@@ -40,21 +40,30 @@
             <!-- nama  -->
             <div class="form-group">
                 <label for="name" class="col-form-label">Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="name" required value="{{ $data->name }}">
+                <input type="text" class="form-control" name="name" required value="{{ $data->superadmin->nama }}">
                 @error('name')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            <!-- //nik  -->
+            <div class="form-group">
+                <label for="nik" class="col-form-label">NIK <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="nik" required value="{{ $data->superadmin->nik }}">
+                @error('nik')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
             <!-- foto ktp  -->
             <div class="form-group">
                 <label for="foto_ktp" class="col-form-label">Foto KTP <span class="text-danger">*</span></label>
                 <div class="input-group" style="margin-bottom: 10px;">
-                    <a href="#" id="foto_ktp" data-toggle="modal" data-target="#modal2">
-                        <img src="{{ asset('storage/foto_ktp/'.$data->superadmin->ktp) }}" width="100px" height="100px" alt="foto" id="holder">
+                    <a href="#" id="foto" data-toggle="modal" data-target="#modal2">
+                        <img src="{{ asset('storage/foto_ktp/'.$data->superadmin->foto_ktp) }}" width="100px" height="100px" alt="foto_ktp" id="holder">
                     </a>
                 </div>
                 <div class="input-group">
-                    <input id="photo" class="form-control" type="file" name="foto_ktp" value="{{ $data->superadmin->ktp }}">
+                    <input id="photo" class="form-control" type="file" name="foto_ktp" value="{{ $data->superadmin->foto_ktp }}">
                 </div>
                 <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                 @error('foto_ktp')

@@ -94,8 +94,8 @@ class SuperAdminController extends Controller
     //update
     public function updateProfil(Request $request, $id)
     {
+        dd($request->all());
         $user = User::find($id);
-        $user->name = $request->name;
         $user->email = $request->email;
         // dd($request->all());
         $user->save();
@@ -103,8 +103,12 @@ class SuperAdminController extends Controller
 
 
         $profil = SuperAdmin::where('user_id', $id)->first();
+        //nama
+        $profil->nama = $request->name;
         $profil->jenis_kelamin = $request->jenis_kelamin;
         $profil->no_hp = $request->no_hp;
+        // nik
+        $profil->nik = $request->nik;
         $profil->status = $request->status;
         $profil->alamat = $request->alamat;
         $profil->tempat_lahir = $request->tempat_lahir;
@@ -116,7 +120,7 @@ class SuperAdminController extends Controller
         //foto_ktp
         if ($request->hasFile('foto_ktp')) {
             $request->file('foto_ktp')->move(storage_path('app/public/foto_ktp'), $request->file('foto_ktp')->getClientOriginalName());
-            $profil->ktp = $request->file('foto_ktp')->getClientOriginalName();
+            $profil->foto_ktp = $request->file('foto_ktp')->getClientOriginalName();
         }
         $profil->save();
         return redirect()->back()->with('success', 'Profil berhasil diupdate');
