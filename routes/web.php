@@ -136,3 +136,7 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->group(function
 Route::middleware(['auth', 'role:terapi'])->prefix('terapi')->group(function () {
     // Terapi routes
 });
+
+Route::get('/loginFinance', function () {
+    return view('finance.login');
+});
