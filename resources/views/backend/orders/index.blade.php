@@ -12,12 +12,11 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="post-category-dataTable" width="100%" cellspacing="0">
+            <table class="data-table table table-sm table-bordered table-striped" id="data-table" width="100%" cellspacing="0">
                 <thead style="background: linear-gradient(180deg, #036666 0%, #67B99A 100%);">
-                    <tr style="color: white;">
+                    <tr style="color: rgb(245, 240, 240);">
                         <!-- No -->
                         <th>No.</th>
-                        Nama Customers
                         <th>Nama Customers</th>
                         <th>Layanan</th>
                         <!-- Tanggal Waktu Pemesanan -->
@@ -30,13 +29,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <td>1</td>
-                    <td>Selesai</td>
-                    <td>PSN-1</td>
-                    <td>12-12-2020</td>
-                    <td>Bandung</td>
-                    <td>Bandung</td>
-                    <td>Bandung</td>
 
 
 
@@ -67,26 +59,39 @@
 <!-- Page level custom scripts -->
 <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
 <script>
-    $('#post-category-dataTable').DataTable({
-        "columnDefs": [{
-            "orderable": false,
-            "targets": [3, 4]
-        }]
-    });
-
-    // Sweet alert
-
-    function deleteData(id) {
-
-    }
-</script>
-<script>
     $(document).ready(function() {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        // tamipilkan table order
+        var table = $('.data-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('orders.index') }}",
+                columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'nama', name: 'nama'},
+                    {data: 'layanan', name: 'layanan'},
+                    {data: 'tanggal_pemesanan', name: 'tanggal_pemesanan'},
+                    {data: 'alamat', name: 'alamat'},
+                    // jika status masuk maka beri warna hijau, jika batal maka beri warna merah
+                    {data: 'status', name: 'status',
+                        "render": function(data, type, row) {
+                            if (data == 'masuk') {
+                                return '<span class="badge badge-success">' + data + '</span>';
+                            } else if (data == 'batal') {
+                                return '<span class="badge badge-danger">' + data + '</span>';
+                            }
+                        }
+                    },
+                    // {data: 'status', name: 'status'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
+                ]
+            });
+
         $('.dltBtn').click(function(e) {
             var form = $(this).closest('form');
             var dataID = $(this).data('id');

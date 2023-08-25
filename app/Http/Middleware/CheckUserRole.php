@@ -24,6 +24,5 @@ class CheckUserRole
         }
 
         return redirect('/login');
-        // return $next($request);
     }
 }
