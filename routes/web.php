@@ -92,7 +92,7 @@ Route::get('/', function () {
 //     return view('register');
 // })->name('register');
 
-// register 
+// maspian
 Route::get('/keuangan', [HomeController::class, 'keuangan']);
 
 
