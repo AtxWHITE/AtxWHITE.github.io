@@ -8,44 +8,99 @@
         </div>
     </div>
     <div class="card-header py-4">
-        <h5 class="m-0 font-weight-bold text-primary float-left">Data Pelanggan</h2>
-            <!-- <a href="" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Post Category</a> -->
+        <h5 class="m-0 font-weight-bold text-primary float-left">Data Customer</h5>
+        <a href="{{url('superadmin/customers/create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Tambah data customers</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            @if(count($user)>0)
+            <!-- form input  -->
+            <form action="{{route('customers.index')}}" method="GET" role="search">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group mb-3">
+                            <!-- <input type="text" class="form-control" name="name" placeholder="Search By Name" aria-label="Recipient's username" aria-describedby="basic-addon2"> -->
+                            <!-- <input type="text" class="form-control" name="name" placeholder="Search By Name" aria-label="Recipient's username" aria-describedby="basic-addon2" value="{{request()->input('name')}}"> -->
+                            <!-- <select name="" id=""></select> -->
+                            <select name="name" id="" class="form-control">
+                                <option value="">-- Pilih Nama --</option>
+                            </select>
+                            <div class="input-group-append">
+
+                                <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Cari</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- //button tambah  -->
             <table class="table table-bordered" id="post-category-dataTable" width="100%" cellspacing="0">
                 <thead style="background: linear-gradient(180deg, #036666 0%, #67B99A 100%);">
                     <tr style="color: white;">
                         <th>No.</th>
                         <!-- Nama -->
-                        <th>Nama Pengguna</th>
+                        <th>Nama Customers</th>
                         <!-- Email -->
                         <th>Email</th>
                         <!-- No.Telp -->
                         <th>No.Telp</th>
                         <!-- Alamat -->
-                        <th>Alamat Tempat Tinggal</th>
+                        <th>Jenis Kelamin</th>
+                        <!-- KTP -->
+                        <th>Alamat</th>
                         <!-- KTP -->
                         <th>KTP</th>
+                        <!-- foto  -->
+                        <th>Foto</th>
+                        <!-- Aksi -->
+                        <!-- status -->
+                        <th>Status</th>
+                        <!-- Aksi -->
+                        <!-- tempat_lahir -->
+                        <th>Tempat Lahir</th>
+                        <!-- tanggal_lahir -->
+                        <th>Tanggal Lahir</th>
+                        <!-- Aksi -->
+                        <th>Aksi</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    @foreach($user as $data)
+                    @foreach($data as $customer)
                     <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$data->name}}</td>
-                        <td>{{$data->email}}</td>
-                        <td>{{$data->profile->no_hp}}</td>
-                        <td>{{$data->profile->alamat}}</td>
-                        <td>{{$data->profile->ktp}}</td>
+                        <td>{{$loop->index +1}}</td>
+                        <td>{{$customer->name}}</td>
+                        <td>{{$customer->email}}</td>
+                        <td>{{$customer->customers->no_hp}}</td>
+                        <td>{{$customer->customers->jenis_kelamin}}</td>
+                        <td>{{$customer->customers->alamat}}</td>
+                        <td>
+                            <!-- //buttom lihat  -->
+                            <a href="{{route('customers.show', $customer->id)}}" class="btn btn-primary btn-sm">lihat</a>
+                        </td>
+                        <td>
+                            <img src="{{asset('storage/uploads/customers/'.$customer->customers->foto)}}" width="100px" alt="">
+                        </td>
+                        <td>{{$customer->customers->status}}</td>
+                        <td>{{$customer->customers->tempat_lahir}}</td>
+                        <td>{{$customer->customers->tanggal_lahir}}</td>
+                        <td>
+                            <!-- //buttom lihat  -->
+                            <a href="{{route('customers.show', $customer->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+                            <a href="{{route('customers.edit', $customer->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> </a>
+                            <!-- //buttom delete  -->
+                            <form method="POST" action="{{route('customers.destroy',[$customer->id])}}">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger btn-sm dltBtn" data-id={{$customer->id}} data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i> </button>
+                            </form>
+                        </td>
+
+
+
+
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-            @else
-            @endif
         </div>
     </div>
 </div>
@@ -111,6 +166,12 @@
                     }
                 });
         })
+    })
+
+
+    $(document).ready(function() {
+        //filter databale 
+
     })
 </script>
 @endpush

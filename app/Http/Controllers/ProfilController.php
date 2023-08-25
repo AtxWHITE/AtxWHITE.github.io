@@ -49,7 +49,7 @@ class ProfilController extends Controller
 
         $profil = Profil::find($id);
         $profil->user_id = $user->id;
-        $profil->ktp = $request->ktp;
+        // $profil->ktp = $request->ktp;
         $profil->jenis_kelamin = $request->jenis_kelamin;
         $profil->no_hp = $request->no_hp;
         $profil->status = $request->status;
@@ -59,6 +59,11 @@ class ProfilController extends Controller
         if ($request->hasFile('foto')) {
             $request->file('foto')->move(storage_path('app/public/foto'), $request->file('foto')->getClientOriginalName());
             $profil->foto = $request->file('foto')->getClientOriginalName();
+        }
+        //foto_ktp
+        if ($request->hasFile('foto_ktp')) {
+            $request->file('foto_ktp')->move(storage_path('app/public/foto_ktp'), $request->file('foto_ktp')->getClientOriginalName());
+            $profil->ktp = $request->file('foto_ktp')->getClientOriginalName();
         }
         $profil->save();
         return redirect()->back()->with('success', 'Profil berhasil diupdate');

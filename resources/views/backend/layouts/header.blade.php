@@ -31,7 +31,7 @@
 
     {{-- Home page --}}
     <li class="nav-item dropdown no-arrow mx-1">
-      <a class="nav-link dropdown-toggle" href="{{route('home')}}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="home" role="button">
+      <a class="nav-link dropdown-toggle" href="{{url('home')}}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="home" role="button">
         <i class="fas fa-home fa-fw">
 
         </i>
@@ -65,31 +65,33 @@
     <li class="nav-item dropdown no-arrow">
       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="mr-2 d-none d-lg-inline  small">{{Auth()->user()->name}}</span>
-        <img class="img-profile rounded-circle" src="{{asset('storage/foto/'.Auth()->user()->profile->foto)}}">
+        <img class="img-profile rounded-circle" src="#">
+        {{-- <img class="img-profile rounded-circle" src="{{asset('storage/foto/'.Auth()->user()->profile->foto)}}"> --}}
       </a>
       <!-- Dropdown - User Information -->
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-        <a class="dropdown-item" href="{{ url('admin/profile') }}/{{Auth()->user()->id}}">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-          Profile
-        </a>
-        <a class="dropdown-item" href="">
-          <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
-          Change Password
-        </a>
-        <a class="dropdown-item" href="">
-          <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-          Settings
-        </a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+        <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="{{ url('superadmin/profile') }}/{{Auth()->user()->id}}">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            Profile
+          </a>
+          <a class="dropdown-item" href="">
+            <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
+            Change Password
+          </a>
+          <a class="dropdown-item" href="">
+            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+            Settings
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ url('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> {{ __('Logout') }}
-        </a>
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> {{ __('Logout') }}
+          </a>
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          @csrf
-        </form>
+          <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
       </div>
     </li>
 

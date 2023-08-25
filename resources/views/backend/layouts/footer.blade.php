@@ -50,6 +50,9 @@
 
 <!-- Page level plugins -->
 <script src="{{asset('backend/vendor/chart.js/Chart.min.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
 
 <!-- Page level custom scripts -->
 {{-- <script src="{{asset('backend/js/demo/chart-area-demo.js')}}"></script> --}}

@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware(CheckUserRole::class); //ini yang diubah
     }
 
     /**
@@ -23,14 +23,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home'); //ini yang diubah
     }
     public function adminHome()
-
     {
-        $user = auth()->user()->with('profile')->first();
-        // dd($user);
-        // dd('admin');
         return view('backend.index');
+    }
+    public function terapisHome()
+    {
+        $user = auth()->user();
+        // dd('admin');
+        return view('home');
     }
 }

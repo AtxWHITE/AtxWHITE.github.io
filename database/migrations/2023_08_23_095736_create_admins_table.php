@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfilsTable extends Migration
+class CreateAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,26 @@ class CreateProfilsTable extends Migration
      */
     public function up()
     {
-        Schema::create('profils', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->string('nama_lengkap');
+            $table->string('nama');
             $table->string('jenis_kelamin');
             $table->string('no_hp');
-            $table->string('alamat');
             $table->string('foto');
-            $table->string('ktp');
-            //Status-
+            //nik
+            $table->string('nik');
+            $table->string('foto_ktp');
             $table->string('status')->nullable();
             // Tempat Lahir-
-            $table->string('tempat_lahir')->nullable();
-            // Tanggal Lahir-
             $table->date('tanggal_lahir')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            //user id
+            $table->string('alamat');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            //foreign key
-            // $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');
+        });
+        Schema::table('admins', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -41,6 +43,6 @@ class CreateProfilsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profils');
+        Schema::dropIfExists('admins');
     }
 }

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customers;
 use App\Models\Profil;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
 
 class RegisterController extends Controller
 {
@@ -30,8 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/user';
-
+    protected $redirectTo = '/login';
     /**
      * Create a new controller instance.
      *
@@ -54,22 +55,6 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            //alamat
-            'alamat' => ['required', 'string', 'max:255'],
-            //jenis kelamin
-            'jenis_kelamin' => ['required', 'string', 'max:255'],
-            //no hp
-            'no_hp' => ['required', 'string', 'max:255'],
-            //foto
-            'foto' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            //ktp
-            'ktp' => ['required', 'string', 'max:255'],
-            //tempat lahir
-            'tempat_lahir' => ['required', 'string', 'max:255'],
-            //tanggal lahir
-            'tanggal_lahir' => ['required', 'string', 'max:255'],
-            //status
-            'status' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -81,35 +66,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // db:transaksion 
-        $user = User::create([
-            'name' => $data['name'],
+        User::create([
+            'role' => 'customer',
             'email' => $data['email'],
-            // 'alamat' => $data['alamat'],
-            'password' => Hash::make($data['password']),
-            //is_admin = 0
-            'is_admin' => 0,
+            'password' => Hash::make($data['password'])
         ]);
-        // if data foto 
-        if (isset($data['foto'])) {
-            $data['foto']->move(storage_path('app/public/foto'), $data['foto']->getClientOriginalName());
-            $data['foto'] = $data['foto']->getClientOriginalName();
-        } else {
-            $data['foto'] = 'default.png';
-        }
-
-        Profil::create([
-            'nama_lengkap' => $data['name'],
-            'alamat' => $data['alamat'],
-            'user_id' => $user->id,
-            'jenis_kelamin' => $data['jenis_kelamin'],
-            'no_hp' =>  $data['no_hp'],
-            'foto' => $data['foto'],
-            'ktp' => $data['ktp'],
-            'status' => $data['status'],
-            'tempat_lahir' => $data['tempat_lahir'],
-            'tanggal_lahir' => $data['tanggal_lahir'],
+        //customers = model customers
+        $customers = Customers::create([
+            'nama' => $data['name'],
+            'jenis_kelamin' => 'Laki-laki',
+            'no_hp' => '08123456789',
+            'alamat' => 'Jl. Jalan',
+            'foto' => 'default.png',
+            'nik' => '1234567890123456',
+            'foto_ktp' => 'default.png',
+            'user_id' => User::latest()->first()->id,
+            'status' => 'aktif',
+            'tempat_lahir' => 'Bandung',
+            'tanggal_lahir' => '2000-01-01',
         ]);
-        return $user;
+        return redirect()->route('login')->with('success', 'Register Berhasil');
     }
 }
