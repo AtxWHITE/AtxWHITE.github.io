@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,12 +16,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $user = User::with('profile')->where('is_admin', '0')
-            //link next 
-            ->paginate(5);
-
-        // dd($user);
-        return view('backend.customers.index')->with('user', $user);
+        $data = User::where('role', 'customer')->with('customers')->get();
+        return view('backend.customers.index', compact('data'));
     }
 
     /**
@@ -30,7 +27,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.customers.create');
     }
 
     /**

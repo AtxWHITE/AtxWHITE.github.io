@@ -9,7 +9,7 @@
     </div>
     <div class="card-header py-4">
         <h5 class="m-0 font-weight-bold text-primary float-left">Data Customer</h5>
-        <!-- <a href="" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Post Category</a> -->
+        <a href="{{url('superadmin/customers/create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Tambah data customers</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -23,9 +23,6 @@
                             <!-- <select name="" id=""></select> -->
                             <select name="name" id="" class="form-control">
                                 <option value="">-- Pilih Nama --</option>
-                                @foreach($user as $data)
-                                <option value="{{$data->name}}">{{$data->profile->alamat}}</option>
-                                @endforeach
                             </select>
                             <div class="input-group-append">
 
@@ -35,58 +32,75 @@
                     </div>
                 </div>
             </form>
-
-            @if(count($user)>0)
+            <!-- //button tambah  -->
             <table class="table table-bordered" id="post-category-dataTable" width="100%" cellspacing="0">
                 <thead style="background: linear-gradient(180deg, #036666 0%, #67B99A 100%);">
                     <tr style="color: white;">
                         <th>No.</th>
                         <!-- Nama -->
-                        <th>Nama Pengguna</th>
+                        <th>Nama Customers</th>
                         <!-- Email -->
                         <th>Email</th>
                         <!-- No.Telp -->
                         <th>No.Telp</th>
                         <!-- Alamat -->
-                        <th>Daeraah Pengguna</th>
+                        <th>Jenis Kelamin</th>
+                        <!-- KTP -->
+                        <th>Alamat</th>
                         <!-- KTP -->
                         <th>KTP</th>
+                        <!-- foto  -->
+                        <th>Foto</th>
+                        <!-- Aksi -->
+                        <!-- status -->
+                        <th>Status</th>
+                        <!-- Aksi -->
+                        <!-- tempat_lahir -->
+                        <th>Tempat Lahir</th>
+                        <!-- tanggal_lahir -->
+                        <th>Tanggal Lahir</th>
+                        <!-- Aksi -->
                         <th>Aksi</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    @foreach($user as $data)
+                    @foreach($data as $customer)
                     <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$data->name}}</td>
-                        <td>{{$data->email}}</td>
-                        <td>{{$data->profile->no_hp}}</td>
-                        <td>{{$data->profile->alamat}}</td>
+                        <td>{{$loop->index +1}}</td>
+                        <td>{{$customer->name}}</td>
+                        <td>{{$customer->email}}</td>
+                        <td>{{$customer->customers->no_hp}}</td>
+                        <td>{{$customer->customers->jenis_kelamin}}</td>
+                        <td>{{$customer->customers->alamat}}</td>
                         <td>
-                            <img src="{{asset('storage/foto_ktp/'.$data->profile->ktp)}}" class="img-fluid" style="max-width: 80px" alt="{{$data->profile->ktp}}">
+                            <!-- //buttom lihat  -->
+                            <a href="{{route('customers.show', $customer->id)}}" class="btn btn-primary btn-sm">lihat</a>
                         </td>
-                        <!-- //button detail  -->
                         <td>
-                            <a href="{{route('customers.show',$data->id)}}" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
-                            <!-- //button edit  -->
-                            <a href="{{route('customers.edit',$data->id)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                            <!-- //button delete  -->
-
-                            <form method="POST" action="{{route('customers.destroy',[$data->id])}}" style="display: inline-block">
+                            <img src="{{asset('storage/uploads/customers/'.$customer->customers->foto)}}" width="100px" alt="">
+                        </td>
+                        <td>{{$customer->customers->status}}</td>
+                        <td>{{$customer->customers->tempat_lahir}}</td>
+                        <td>{{$customer->customers->tanggal_lahir}}</td>
+                        <td>
+                            <!-- //buttom lihat  -->
+                            <a href="{{route('customers.show', $customer->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+                            <a href="{{route('customers.edit', $customer->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> </a>
+                            <!-- //buttom delete  -->
+                            <form method="POST" action="{{route('customers.destroy',[$customer->id])}}">
                                 @csrf
                                 @method('delete')
-                                <button class="btn btn-danger btn-sm dltBtn" data-id={{$data->id}}><i class="fas fa-trash"></i></button>
+                                <button class="btn btn-danger btn-sm dltBtn" data-id={{$customer->id}} data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i> </button>
                             </form>
                         </td>
+
+
 
 
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-            @else
-            @endif
         </div>
     </div>
 </div>
