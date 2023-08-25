@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customers;
 use App\Models\Profil;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -67,9 +68,22 @@ class RegisterController extends Controller
     {
         User::create([
             'role' => 'customer',
-            'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
+        ]);
+        //customers = model customers
+        $customers = Customers::create([
+            'nama' => $data['name'],
+            'jenis_kelamin' => 'Laki-laki',
+            'no_hp' => '08123456789',
+            'alamat' => 'Jl. Jalan',
+            'foto' => 'default.png',
+            'nik' => '1234567890123456',
+            'foto_ktp' => 'default.png',
+            'user_id' => User::latest()->first()->id,
+            'status' => 'aktif',
+            'tempat_lahir' => 'Bandung',
+            'tanggal_lahir' => '2000-01-01',
         ]);
         return redirect()->route('login')->with('success', 'Register Berhasil');
     }

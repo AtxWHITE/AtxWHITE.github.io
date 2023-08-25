@@ -11,14 +11,23 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
+                    @if (session('resent'))
+                    <div class="alert alert-success" role="alert">
+                        {{ __('A fresh verification link has been sent to your email address.') }}
+                    </div>
+                    @endif
 
                     You are normal user.
                     <!-- //form verifikasi email -->
+                    <!-- //if user not verified -->
+                    @if (Auth::user()->email_verified_at == NULL)
                     <form method="POST" action="{{ route('verification.resend') }}">
                         @csrf
                         <button type="submit" class="btn btn-primary">Resend Email</button>
                     </form>
+                    @endif
                     <!-- //form verifikasi email -->
+
 
                 </div>
 

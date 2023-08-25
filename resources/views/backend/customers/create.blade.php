@@ -1,7 +1,5 @@
 @extends('backend.layouts.master')
 @section('main-content')
-<!-- //messege  -->
-<!-- if messege status == success -->
 
 <div class="card">
     @if (Session::has('success'))
@@ -15,24 +13,39 @@
         {{ Session::get('error') }}
     </div>
     @endif
-    <h5 class="card-header">superadmin</h5>
+    <h5 class="card-header">Form Tambah Customers</h5>
     <div class="card-body">
-        <form method="post" action="{{ url('superadmin/updateProfil', $data->id) }}" enctype="multipart/form-data">
+        <form method="post" action="{{ url('superadmin.customers.create') }}" enctype="multipart/form-data">
             @csrf
-            {{-- @method('PATCH') --}}
-
+            <!-- name -->
+            <div class="form-group">
+                <label for="name" class="col-form-label">Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="name" required value="{{ old('name') }}">
+                @error('name')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <!-- email -->
+            <div class="form-group">
+                <label for="email" class="col-form-label">Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" name="email" required value="{{ old('email') }}">
+                @error('email')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <!-- password -->
+            <div class="form-group">
+                <label for="password" class="col-form-label">Password <span class="text-danger">*</span></label>
+                <input type="password" class="form-control" name="password" required value="{{ old('password') }}">
+                @error('password')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
             <div class="form-group">
                 <label for="inputPhoto" class="col-form-label">Foto <span class="text-danger">*</span></label>
-                <div class="input-group" style="margin-bottom: 10px;">
-                    <a href="#" id="foto" data-toggle="modal" data-target="#exampleModal">
-                        <img src="{{ asset('storage/foto/'.$data->superadmin->foto) }}" width="100px" height="100px" alt="foto" id="holder">
-                    </a>
-                </div>
                 <div class="input-group">
-                    <input id="photo" class="form-control" type="file" name="foto" value="{{ $data->superadmin->foto }}">
+                    <input id="photo" class="form-control" type="file" name="foto" value="">
                 </div>
-
-                <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                 @error('photo')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -40,7 +53,7 @@
             <!-- nama  -->
             <div class="form-group">
                 <label for="name" class="col-form-label">Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="name" required value="{{ $data->name }}">
+                <input type="text" class="form-control" name="name" required>
                 @error('name')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -48,13 +61,8 @@
             <!-- foto ktp  -->
             <div class="form-group">
                 <label for="foto_ktp" class="col-form-label">Foto KTP <span class="text-danger">*</span></label>
-                <div class="input-group" style="margin-bottom: 10px;">
-                    <a href="#" id="foto_ktp" data-toggle="modal" data-target="#modal2">
-                        <img src="{{ asset('storage/foto_ktp/'.$data->superadmin->ktp) }}" width="100px" height="100px" alt="foto" id="holder">
-                    </a>
-                </div>
                 <div class="input-group">
-                    <input id="photo" class="form-control" type="file" name="foto_ktp" value="{{ $data->superadmin->ktp }}">
+                    <input id="photo" class="form-control" type="file" name="foto_ktp" value="">
                 </div>
                 <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                 @error('foto_ktp')
@@ -65,8 +73,9 @@
             <div class="form-group">
                 <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin <span class="text-danger">*</span></label>
                 <select name="jenis_kelamin" class="form-control">
-                    <option value="Laki-laki" @if ($data->superadmin->jenis_kelamin == 'Laki-laki') selected @endif>Laki-laki</option>
-                    <option value="Perempuan" @if ($data->superadmin->jenis_kelamin == 'Perempuan') selected @endif>Perempuan</option>
+                    <option value="">-- Pilih Jenis Kelamin --</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
                 </select>
                 @error('jenis_kelamin')
                 <span class="text-danger">{{ $message }}</span>
@@ -75,14 +84,14 @@
             <!-- no_hp -->
             <div class="form-group">
                 <label for="no_hp" class="col-form-label">No HP <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="no_hp" required value="{{ $data->superadmin->no_hp }}">
+                <input type="text" class="form-control" name="no_hp" required value="">
                 @error('no_hp')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="email" class="col-form-label">Email <span class="text-danger">*</span></label>
-                <input type="email" class="form-control" name="email" required value="{{ $data->email }}">
+                <input type="email" class="form-control" name="email" required value="">
                 @error('email')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -91,7 +100,7 @@
             <!-- status  -->
             <div class="form-group">
                 <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="status" required value="{{ $data->superadmin->status }}">
+                <input type="text" class="form-control" name="status" required value="">
                 @error('status')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -99,7 +108,7 @@
             <!-- tanggal lahir  -->
             <div class="form-group">
                 <label for="tanggal_lahir" class="col-form-label">Tanggal Lahir <span class="text-danger">*</span></label>
-                <input type="date" class="form-control" name="tanggal_lahir" required value="{{ $data->superadmin->tanggal_lahir }}">
+                <input type="date" class="form-control" name="tanggal_lahir" required value="">
                 @error('tanggal_lahir')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -110,7 +119,7 @@
             <!-- tempat lahir  -->
             <div class="form-group">
                 <label for="tempat_lahir" class="col-form-label">Tempat Lahir <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="tempat_lahir" required value="{{ $data->superadmin->tempat_lahir }}">
+                <input type="text" class="form-control" name="tempat_lahir" required value="">
                 @error('tempat_lahir')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -124,7 +133,7 @@
             <!-- alamat  -->
             <div class="form-group">
                 <label for="alamat" class="col-form-label">Alamat <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="alamat" required value="{{ $data->superadmin->alamat }}">
+                <input type="text" class="form-control" name="alamat" required value="">
                 @error('alamat')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -142,49 +151,8 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    Foto {{ $data->name }}
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <img src="{{ asset('storage/foto/'.$data->superadmin->foto) }}" class="img-fluid" alt="foto" id="holder">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    Foto KTP
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <img src="{{ asset('storage/foto_ktp/'.$data->superadmin->ktp) }}" class="img-fluid" alt="foto" id="holder">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 

@@ -50,7 +50,7 @@ class LoginController extends Controller
             case 'finance':
                 return redirect('/finance/dashboard');
             case 'customer':
-                return redirect('/customer/dashboard');
+                return redirect('/');
             case 'terapi':
                 return redirect('/terapi/dashboard');
         }

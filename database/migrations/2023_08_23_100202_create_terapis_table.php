@@ -15,20 +15,20 @@ class CreateTerapisTable extends Migration
     {
         Schema::create('terapis', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
             $table->string('jenis_kelamin');
             $table->string('no_hp');
-            $table->string('alamat');
             $table->string('foto');
-            $table->string('ktp');
-            //Status-
+            //nik
+            $table->string('nik');
+            $table->string('foto_ktp');
             $table->string('status')->nullable();
             // Tempat Lahir-
-            $table->string('tempat_lahir')->nullable();
-            // Tanggal Lahir-
             $table->date('tanggal_lahir')->nullable();
-            //user_id
+            $table->string('tempat_lahir')->nullable();
+            //user id
+            $table->string('alamat');
             $table->unsignedBigInteger('user_id');
-            //id_layanan
             $table->unsignedBigInteger('id_layanan')->nullable();
             $table->timestamps();
         });

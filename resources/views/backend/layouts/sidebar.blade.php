@@ -12,7 +12,7 @@
   <hr class="sidebar-divider my-0">
 
   <!-- Nav Item - Dashboard -->
-  <li class="nav-item {{Request::is('admin/dashboard') ? 'active' : ''}}">
+  <li class="nav-item {{Request::is('superadmin/dashboard') ? 'active' : ''}}">
     <a class="nav-link" href="{{route('superadmin.dashboard')}}">
       <i class="fas fa-fw fa-tachometer-alt" style=""></i>
       <span>Dashboard</span></a>
@@ -33,25 +33,25 @@
 
 
   <!-- Order -->
-  <li class="nav-item {{Request::is('admin/orders') ? 'active' : ''}}">
+  <li class="nav-item {{Request::is('superadmin/orders') ? 'active' : ''}}">
     <a class="nav-link" href="{{route('orders.index')}}">
       <i class="fas fa-cart-arrow-down" style=""></i>
       <span>Order</span></a>
   </li>
   <!-- Reviews -->
-  <li class="nav-item {{Request::is('admin/reviews') ? 'active' : ''}}">
+  <li class="nav-item {{Request::is('superadmin/reviews') ? 'active' : ''}}">
     <a class="nav-link" href="{{route('reviews.index')}}">
       <i class="fas fa-star" style=""></i>
       <span>Reviews</span></a>
   </li>
   <!-- Unsuspend -->
-  <li class="nav-item {{Request::is('admin/unsuspend') ? 'active' : ''}}">
+  <li class="nav-item {{Request::is('superadmin/unsuspend') ? 'active' : ''}}">
     <a class="nav-link" href="{{route('unsuspend.index')}}">
       <i class="fas fa-user-check" style=""></i>
       <span>Unsuspend</span></a>
   </li>
   <!-- Register -->
-  <li class="nav-item {{Request::is('admin/register') ? 'active' : ''}}">
+  <li class="nav-item {{Request::is('superadmin/register') ? 'active' : ''}}">
     <a class="nav-link" href="{{route('adminRegister.index')}}">
       <i class="fas fa-user-plus" style=""></i>
       <span>Register</span></a>
@@ -60,7 +60,7 @@
 
 
   <!-- data customers  -->
-  <li class="nav-item {{Request::is('admin/customers') ? 'active' : ''}}">
+  <li class="nav-item {{Request::is('superadmin/customers') ? 'active' : ''}}">
     <a class="nav-link" href="{{route('customers.index')}}">
       <i class="fas fa-users" style=""></i>
       <span>Customers</span></a>
@@ -68,7 +68,7 @@
   <!-- //data terapis icon database  -->
   <li class="nav-item {{Request::is('admin/terapis') ? 'active' : ''}}">
     {{-- <a class="nav-link" href="{{route('terapis.index')}}"> --}}
-      <a class="nav-link" href="#">
+    <a class="nav-link" href="#">
       <i class="fas fa-database" style=""></i>
       <span>Terapis</span></a>
   </li>

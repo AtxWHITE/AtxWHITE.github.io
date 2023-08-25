@@ -18,7 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        // 'name',
         'email',
         'password',
         'role',
@@ -42,6 +42,14 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    // relasi profile
-
+    // relasi customers
+    public function customers()
+    {
+        return $this->hasOne(Customers::class, 'user_id', 'id');
+    }
+    //superadmin
+    public function superadmin()
+    {
+        return $this->hasOne(SuperAdmin::class, 'user_id', 'id');
+    }
 }
