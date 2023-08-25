@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
+    <title>Terpist</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="{{ asset('finance/css/style.css') }}">
 </head>
@@ -18,9 +18,9 @@
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="logo-apple"></ion-icon>
+                            <img src="{{ asset('frontend/assets/image/logo-70.png') }}" alt="">
                         </span>
-                        <span class="title">Brand Name</span>
+                        <span class="title" style="font-weight: 700;">Finance</span>
                     </a>
                 </li>
 
@@ -29,7 +29,7 @@
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
-                        <span class="title">Dashboard</span>
+                        <span class="title">Beranda</span>
                     </a>
                 </li>
 
@@ -38,52 +38,25 @@
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
-                        <span class="title">Customers</span>
+                        <span class="title">Pekerjaan</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="chatbubble-outline"></ion-icon>
+                            <ion-icon name="time-outline"></ion-icon>
                         </span>
-                        <span class="title">Messages</span>
+                        <span class="title">Riwayat</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="help-outline"></ion-icon>
+                            <ion-icon name="wallet-outline"></ion-icon>
                         </span>
-                        <span class="title">Help</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="settings-outline"></ion-icon>
-                        </span>
-                        <span class="title">Settings</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="lock-closed-outline"></ion-icon>
-                        </span>
-                        <span class="title">Password</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Sign Out</span>
+                        <span class="title">Pendapatan</span>
                     </a>
                 </li>
             </ul>
@@ -96,15 +69,30 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
-                <div class="search">
-                    <label>
-                        <input type="text" placeholder="Search here">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </label>
+                <div class="user">
+                    <img src="{{'finance/imgs/customer01.jpg'}}" alt="">
                 </div>
 
-                <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt="">
+                <div class="search">
+                    <div class="row">
+                        <span>Bayu Pratama (Kab. Blitar)</span>
+                    </div>
+                    <div class="row">
+                        <div class="rating">
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                            <span class="star">&#9734;</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>Kamis, 4 April 2023</p>
+                    </div>
+                </div>
+
+                <div class="notifikasi">
+                    <ion-icon name="notifications-sharp"></ion-icon>
                 </div>
             </div>
 
@@ -113,46 +101,36 @@
                 <div class="card">
                     <div>
                         <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
+                        <div class="cardName">Diterima</div>
                     </div>
 
                     <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
+                        <ion-icon name="checkmark-outline"></ion-icon>
                     </div>
                 </div>
 
                 <div class="card">
                     <div>
                         <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
+                        <div class="cardName">Ditolak</div>
                     </div>
 
                     <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
+                        <ion-icon name="close-outline"></ion-icon>
                     </div>
                 </div>
 
                 <div class="card">
                     <div>
                         <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
+                        <div class="cardName">Selesai</div>
                     </div>
 
                     <div class="iconBx">
-                        <ion-icon name="chatbubbles-outline"></ion-icon>
+                        <ion-icon name="checkmark-done-outline"></ion-icon>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
             </div>
 
             <!-- ================ Order Details List ================= -->
@@ -242,7 +220,7 @@
                     <table>
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer01.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -251,7 +229,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer01.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -260,7 +238,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer02.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -269,7 +247,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer01.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -278,7 +256,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer02.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -287,7 +265,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer01.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -296,7 +274,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer01.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -305,7 +283,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer02.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -315,10 +293,13 @@
                 </div>
             </div>
         </div>
+        <div class="jobs">
+
+        </div>
     </div>
 
     <!-- =========== Scripts =========  -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('finance/js/main.js') }}"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
