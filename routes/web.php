@@ -22,6 +22,14 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/terapis', function () {
+    return view('terapist.index');
+});
+
+Route::get('/finance', function () {
+    return view('keuangan.index');
+});
+
 // // /user 
 // Route::get('/user', [HomeController::class, 'index'])->name('user.home');
 // //route home
@@ -129,7 +137,6 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(func
     Route::resource('adminRegister', 'App\Http\Controllers\Admin\RegisterController');
     // reports 
     Route::resource('reports', 'App\Http\Controllers\Admin\ReportController');
-
 });
 
 
@@ -149,7 +156,7 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(func
 //     // reports 
 //     Route::resource('reports', 'App\Http\Controllers\Admin\ReportController');
 
-    
+
 // });
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
