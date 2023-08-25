@@ -9,6 +9,7 @@ class Customers extends Model
 {
     use HasFactory;
 
+
     // table customers
     protected $table = 'customers';
 
@@ -16,5 +17,11 @@ class Customers extends Model
     public function order()
     {
         return $this->hasMany(Order::class);
+
+    protected $table = 'customers';
+    protected $fillable = ['jenis_kelamin', 'alamat', 'no_hp', 'foto', 'ktp', 'user_id', 'status', 'tempat_lahir', 'tanggal_lahir', 'ktp'];
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

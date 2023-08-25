@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SuperAdmin;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SuperAdminController extends Controller
@@ -26,6 +27,7 @@ class SuperAdminController extends Controller
     {
         //
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -82,4 +84,53 @@ class SuperAdminController extends Controller
     {
         //
     }
+    // profile
+    public function profile($id)
+    {
+
+        $data = User::where('id', $id)->with('superadmin')->first();
+        return view('backend.profile', compact('data'));
+    }
+    //update
+    public function updateProfil(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        // dd($request->all());
+        $user->save();
+
+
+
+        $profil = SuperAdmin::where('user_id', $id)->first();
+        $profil->jenis_kelamin = $request->jenis_kelamin;
+        $profil->no_hp = $request->no_hp;
+        $profil->status = $request->status;
+        $profil->alamat = $request->alamat;
+        $profil->tempat_lahir = $request->tempat_lahir;
+        $profil->tanggal_lahir = $request->tanggal_lahir;
+        if ($request->hasFile('foto')) {
+            $request->file('foto')->move(storage_path('app/public/foto'), $request->file('foto')->getClientOriginalName());
+            $profil->foto = $request->file('foto')->getClientOriginalName();
+        }
+        //foto_ktp
+        if ($request->hasFile('foto_ktp')) {
+            $request->file('foto_ktp')->move(storage_path('app/public/foto_ktp'), $request->file('foto_ktp')->getClientOriginalName());
+            $profil->ktp = $request->file('foto_ktp')->getClientOriginalName();
+        }
+        $profil->save();
+        return redirect()->back()->with('success', 'Profil berhasil diupdate');
+    }
+
+    // public function updateProfile(Request $request, $id)
+    // {
+    //     $data = User::where('id', $id)->first();
+    //     $data->name = $request->name;
+    //     $data->email = $request->email;
+    //     if ($request->password != null) {
+    //         $data->password = bcrypt($request->password);
+    //     }
+    //     $data->save();
+    //     return redirect()->back()->with('success', 'Berhasil mengubah data');
+    // }
 }
