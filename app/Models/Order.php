@@ -10,15 +10,20 @@ class Order extends Model
     use HasFactory;
 
     // table
-    protected $table = 'orders';
+    protected $table = 'order';
 
     // filable
     protected $fillable = [
-        'user_id',
-        'mobil_id',
-        'tanggal_pinjam',
+        'customer_id',
+        'layanan',
+        'tanggal_pemesanan',
         'tanggal_kembali',
-        'total_harga',
         'status',
     ];
+
+    // relasi dengan customer
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }
