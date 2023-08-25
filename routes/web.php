@@ -25,7 +25,6 @@ Auth::routes(['verify' => true]);
 Route::get('/', function () {
     return view('index');
 });
-
 // <<<<<<< HEAD
 // =======
 // // // /user 
@@ -94,6 +93,7 @@ Route::get('/', function () {
 // })->name('register');
 
 // register 
+Route::get('/keuangan', [HomeController::class, 'keuangan']);
 
 
 Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(function () {
