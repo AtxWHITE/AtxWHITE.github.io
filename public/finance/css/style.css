@@ -10,8 +10,8 @@
 }
 
 :root {
-  --blue: #2a2185;
-  --white: #fff;
+  --blue: #56AB91;
+  --white: #F2FEF6;
   --gray: #f5f5f5;
   --black1: #222;
   --black2: #999;
@@ -62,7 +62,7 @@ body {
 }
 
 .navigation ul li:nth-child(1) {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   pointer-events: none;
 }
 
@@ -89,6 +89,27 @@ body {
 }
 .navigation ul li a .icon ion-icon {
   font-size: 1.75rem;
+}
+
+.navigation ul li a .pp {
+  position: relative;
+  display: block;
+  text-align: center;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+
+}
+.navigation ul li a .pp img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .navigation ul li a .title {
@@ -145,11 +166,12 @@ body {
 
 .topbar {
   width: 100%;
-  height: 60px;
+  height: 85px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
+  background: var(--blue);
 }
 
 .toggle {
@@ -164,38 +186,30 @@ body {
 }
 
 .search {
-  position: relative;
+  position: static;
   width: 400px;
   margin: 0 10px;
+  margin-right: 300px;
 }
 
-.search label {
+.search span {
   position: relative;
   width: 100%;
+  color: #f5f5f5;
 }
 
-.search label input {
+.search p {
+  position: relative;
   width: 100%;
-  height: 40px;
-  border-radius: 40px;
-  padding: 5px 20px;
-  padding-left: 35px;
-  font-size: 18px;
-  outline: none;
-  border: 1px solid var(--black2);
-}
-
-.search label ion-icon {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  font-size: 1.2rem;
+  color: #f5f5f5;
+  font-size: small;
 }
 
 .user {
   position: relative;
   width: 40px;
   height: 40px;
+  margin-left: 300px;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
@@ -210,13 +224,24 @@ body {
   object-fit: cover;
 }
 
+.notifikasi {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
 /* ======================= Cards ====================== */
 .cardBox {
   position: relative;
   width: 100%;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
 }
 
