@@ -29,6 +29,12 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark nav-color position-fixed w-100">
         <div class="container">
+            <!-- //if resend email verifi == null verifi  -->
+            @if (session('resent'))
+            <div class="alert alert-success" role="alert">
+                {{ __('Tautan verifikasi baru telah dikirim ke alamat email Anda.') }}
+            </div>
+            @endif
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('frontend/assets/image/logo-70.png') }}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-3">
                 Pijat.in
@@ -55,9 +61,7 @@
                     @if (Auth::check())
                     <div class="dropdown">
                         <!-- //icon profile  -->
-                        <?php
 
-                        ?>
                         <a>
                             <!-- //name  -->
                             <a href="#" class="text-decoration-none text-white ms-2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,6 +72,15 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="#">Profil</a></li>
                                 <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+                                <!-- //if email verifi == null verifi  -->
+                                @if (auth()->user()->email_verified_at == null)
+                                <li>
+                                    <form action="{{ route('verification.resend') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item">Verifikasi Email</button>
+                                    </form>
+                                </li>
+                                @endif
                                 <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Keluar</a>
                                 </li>
 

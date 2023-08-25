@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        // 'name',
         'email',
         'password',
         'role',
@@ -42,9 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    // relasi profile
-    public function profile()
+    // relasi customers
+    public function customers()
     {
-        return $this->hasOne(Profil::class);
+        return $this->hasOne(Customers::class, 'user_id', 'id');
+    }
+    //superadmin
+    public function superadmin()
+    {
+        return $this->hasOne(SuperAdmin::class, 'user_id', 'id');
     }
 }
