@@ -5,16 +5,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SuperadminController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Auth::routes();
 
@@ -26,12 +17,12 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Route::get('/register', function () {
-//     return view('register');
-// })->name('register');
+// // Route::get('/user', [HomeController::class, 'index'])->name('user.home');
 
-// register 
-
+// // jika mengakses home maka arahkan ke / 
+// Route::get('/home', function () {
+//     return redirect('/');
+// });
 
 Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(function () {
     Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('superadmin.dashboard');
@@ -43,6 +34,7 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(func
     // Route::resource('users', 'App\Http\Controllers\Admin\UserController');
     //customer
     Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
+    //terapi
     Route::resource('terapis', 'App\Http\Controllers\Admin\TerapisController');
     // order 
     Route::resource('orders', 'App\Http\Controllers\Admin\OrderController');
@@ -58,6 +50,7 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(func
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     // Admin routes
+    Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('admin.dashboard');
 });
 
 Route::middleware(['auth', 'role:finance'])->prefix('finance')->group(function () {
