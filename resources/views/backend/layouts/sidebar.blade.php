@@ -5,7 +5,7 @@
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-laugh-wink" style=""></i>
     </div>
-    {{-- jika role = superadmin maka beri SuperAdmin jika role = admin maka beri Admin--}}
+    
     @if (Auth::user()->role == 'superadmin')
     <div class="sidebar-brand-text mx-3">SuperAdmin</div>
     @elseif (Auth::user()->role == 'admin')
