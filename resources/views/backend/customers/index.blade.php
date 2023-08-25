@@ -9,7 +9,7 @@
     </div>
     <div class="card-header py-4">
         <h5 class="m-0 font-weight-bold text-primary float-left">Data Customer</h5>
-        <a href="{{url('superadmin/customers/create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Tambah data customers</a>
+        <a href="javascript:void(0)" id="tambah" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#customerModal"><i class="fas fa-plus"></i> Tambah Customer</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -38,15 +38,15 @@
                     <tr style="color: white;">
                         <th>No.</th>
                         <!-- Nama -->
-                        <th>Nama Customers</th>
+                        <th>Nama</th>
                         <!-- Email -->
                         <th>Email</th>
                         <!-- No.Telp -->
                         <th>No.Telp</th>
                         <!-- Alamat -->
-                        <th>Jenis Kelamin</th>
+                        <th>JK</th>
                         <!-- KTP -->
-                        <th>Alamat</th>
+                        <th>Daerah Pengguna</th>
                         <!-- KTP -->
                         <th>KTP</th>
                         <!-- foto  -->
@@ -55,10 +55,7 @@
                         <!-- status -->
                         <th>Status</th>
                         <!-- Aksi -->
-                        <!-- tempat_lahir -->
-                        <th>Tempat Lahir</th>
-                        <!-- tanggal_lahir -->
-                        <th>Tanggal Lahir</th>
+                        <th>TTL </th>
                         <!-- Aksi -->
                         <th>Aksi</th>
                     </tr>
@@ -67,21 +64,20 @@
                     @foreach($data as $customer)
                     <tr>
                         <td>{{$loop->index +1}}</td>
-                        <td>{{$customer->name}}</td>
+                        <td>{{$customer->customers->nama}}</td>
                         <td>{{$customer->email}}</td>
                         <td>{{$customer->customers->no_hp}}</td>
                         <td>{{$customer->customers->jenis_kelamin}}</td>
                         <td>{{$customer->customers->alamat}}</td>
                         <td>
-                            <!-- //buttom lihat  -->
-                            <a href="{{route('customers.show', $customer->id)}}" class="btn btn-primary btn-sm">lihat</a>
+                            <img src="{{asset('storage/foto/'.$customer->customers->foto)}}" width="100px" alt="">
                         </td>
                         <td>
-                            <img src="{{asset('storage/uploads/customers/'.$customer->customers->foto)}}" width="100px" alt="">
+                            <img src="{{asset('storage/foto/'.$customer->customers->foto)}}" width="100px" alt="">
+
                         </td>
                         <td>{{$customer->customers->status}}</td>
                         <td>{{$customer->customers->tempat_lahir}}</td>
-                        <td>{{$customer->customers->tanggal_lahir}}</td>
                         <td>
                             <!-- //buttom lihat  -->
                             <a href="{{route('customers.show', $customer->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
@@ -104,6 +100,34 @@
         </div>
     </div>
 </div>
+<!-- //modal tambah customer  -->
+<!-- <div  -->
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @push('styles')
@@ -170,7 +194,12 @@
 
 
     $(document).ready(function() {
-        //filter databale 
+        $('#tambah').click(function() {
+            //modal title setting
+            $('#customerModal').find('.modal-title').text('Tambah Customer');
+        })
+
+
 
     })
 </script>

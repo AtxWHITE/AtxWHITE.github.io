@@ -28,10 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-<<<<<<< HEAD
     protected $redirectTo = '/home'; //ini yang diubah
-=======
->>>>>>> d56e70c0a13e594f06160a6864afb1eb723e9a18
 
     /**
      * Create a new controller instance.

@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SuperadminController;
 
 
@@ -16,7 +15,11 @@ Auth::routes(['verify' => true]);
 Route::get('/', function () {
     return view('index');
 });
-
+//logout
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+});
 // // Route::get('/user', [HomeController::class, 'index'])->name('user.home');
 
 // // jika mengakses home maka arahkan ke / 
