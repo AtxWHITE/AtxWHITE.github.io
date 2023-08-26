@@ -68,10 +68,10 @@
                                     </div>
                                     <!-- daftar sebagai  -->
                                     <div class="form-outline mb-1">
-                                        <select name="is_admin" id="is_admin" id="form3Example1cg" class="form-control form-control-lg" required>
+                                        <select name="role" id="role" id="form3Example1cg" class="form-control form-control-lg" required>
                                             <option value="">-- Daftar Sebagai --</option>
-                                            <option value="0">Customers</option>
-                                            <option value="2">Terapis</option>
+                                            <option value="customer">Customers</option>
+                                            <option value="terapis">Terapis</option>
                                         </select>
                                         <label class="form-label" for="form3Example3cg" text-align="center">Daftar Sebagai</label>
                                     </div>
