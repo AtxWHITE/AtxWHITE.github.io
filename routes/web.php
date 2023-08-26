@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SuperadminController;
 /*
@@ -65,6 +64,9 @@ Route::get('/', function () {
 // Route::get('/register', function () {
 //     return view('register');
 // })->name('register');
+
+Route::get('/keuangan', [HomeController::class, 'keuangan']);
+
 
 
 Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(function () {

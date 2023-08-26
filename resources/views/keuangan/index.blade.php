@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terpist</title>
+    <title>Finance</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="{{ asset('finance/css/style.css') }}">
 </head>
@@ -27,7 +27,7 @@
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
+                            <ion-icon name="grid"></ion-icon>
                         </span>
                         <span class="title">Beranda</span>
                     </a>
@@ -36,9 +36,9 @@
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
+                            <ion-icon name="cash"></ion-icon>
                         </span>
-                        <span class="title">Pekerjaan</span>
+                        <span class="title">Transaksi Customer</span>
                     </a>
                 </li>
 
@@ -69,65 +69,105 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
+                <div class="notifikasi">
+                    <ion-icon name="notifications-sharp"></ion-icon>
+                </div>
+
                 <div class="user">
                     <img src="{{'finance/imgs/customer01.jpg'}}" alt="">
                 </div>
 
-                <div class="search">
-                    <div class="row">
-                        <span>Bayu Pratama (Kab. Blitar)</span>
-                    </div>
-                    <div class="row">
-                        <div class="rating">
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9734;</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <p>Kamis, 4 April 2023</p>
-                    </div>
-                </div>
-
-                <div class="notifikasi">
-                    <ion-icon name="notifications-sharp"></ion-icon>
-                </div>
             </div>
 
             <!-- ======================= Cards ================== -->
+            <div class="cardMain">
+                <div class="card">
+                    <div class="title">Transaksi Bulanan</div>
+                    <div class="bulan">April</div>
+                </div>
+
+            </div>
             <div class="cardBox">
-                <div class="card">
+                <div class="card" style="background-color: #3FC1C0;">
                     <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Diterima</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="checkmark-outline"></ion-icon>
+                        <div class="numbers">Rp 19.000.000,00</div>
+                        <div class="cardName">Transaksi Masuk</div>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" style="background-color: #04A6C2;">
                     <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Ditolak</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="close-outline"></ion-icon>
+                        <div class="numbers">Rp 4.500.000,00</div>
+                        <div class="cardName">Transaksi Keluar</div>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" style="background-color: #42A5F5;">
                     <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Selesai</div>
+                        <div class="numbers">Rp. 14.500.000,00</div>
+                        <div class="cardName">Total</div>
                     </div>
+                </div>
 
-                    <div class="iconBx">
-                        <ion-icon name="checkmark-done-outline"></ion-icon>
+            </div>
+
+            <div class="cardMain">
+                <div class="card">
+                    <div class="title">Transaksi Mingguan</div>
+                    <div class="bulan">Minggu Ke 1</div>
+                </div>
+
+            </div>
+            <div class="cardBox">
+                <div class="card" style="background-color: #3FC1C0;">
+                    <div>
+                        <div class="numbers">Rp 19.000.000,00</div>
+                        <div class="cardName">Transaksi Masuk</div>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color: #04A6C2;">
+                    <div>
+                        <div class="numbers">Rp 4.500.000,00</div>
+                        <div class="cardName">Transaksi Keluar</div>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color: #42A5F5;">
+                    <div>
+                        <div class="numbers">Rp. 14.500.000,00</div>
+                        <div class="cardName">Total</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="cardMain">
+                <div class="card">
+                    <div class="title">Transaksi Harian</div>
+                    <div class="bulan">10 April 2023</div>
+                </div>
+
+            </div>
+            <div class="cardBox">
+                <div class="card" style="background-color: #3FC1C0;">
+                    <div>
+                        <div class="numbers">Rp 19.000.000,00</div>
+                        <div class="cardName">Transaksi Masuk</div>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color: #04A6C2;">
+                    <div>
+                        <div class="numbers">Rp 4.500.000,00</div>
+                        <div class="cardName">Transaksi Keluar</div>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color: #42A5F5;">
+                    <div>
+                        <div class="numbers">Rp. 14.500.000,00</div>
+                        <div class="cardName">Total</div>
                     </div>
                 </div>
 
