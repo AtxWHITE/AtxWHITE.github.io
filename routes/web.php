@@ -49,15 +49,9 @@ Route::get('/home', function () {
 //verfikasi email
 Auth::routes(['verify' => true]);
 
-
 Route::get('/', function () {
     return view('index');
 });
-
-// Route::get('/register', function () {
-//     return view('register');
-// })->name('register');
-
 
 Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(function () {
     // dashboard
@@ -85,7 +79,7 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(func
     // unsuspend
     Route::resource('unsuspend', 'App\Http\Controllers\Admin\UnsuspendController');
     // register
-    Route::resource('adminRegister', 'App\Http\Controllers\Admin\RegisterController');
+    Route::resource('admin', 'App\Http\Controllers\AdminController');
     // reports 
     Route::resource('reports', 'App\Http\Controllers\Admin\ReportController');
 });
