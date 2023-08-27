@@ -9,7 +9,37 @@
     </div>
     <div class="card-header py-4">
         <h5 class="m-0 font-weight-bold text-primary float-left">Data Orders</h5>
+        
     </div>
+    {{-- dropdown untuk filter status --}}
+    <div class="card-header mb-4">
+        <div class="row">
+            <form action="{{ route('orders.index') }}" method="GET">
+                <div class="col-md-12">
+                    <select id="status" name="status" class="form-control" style="border : 1px solid #015b3b;">
+                        <span class="badge badge-success"><i class="fa fa-circle"></i></span>
+                        <option value="">Total Order ( {{$jumlah_order}} )</option>
+                        <option value="masuk">Masuk ( {{$jumlah_order_masuk}} ) </option>
+                        <option value="batal">Batal ( {{$jumlah_order_batal}} )</option>
+                    </select>
+                </div>
+            </form>
+            {{-- sebelab kanan button fiter yang dapat memunculkan popup daerah & layanan --}}
+            <div class="float-right col-md-12">
+                <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModal">
+                    {{-- icon filter --}}
+                    <i class="fas fa-filter"></i>
+                </button>
+
+                <!-- Modal -->
+                
+
+            </div>
+                
+        </div>
+    </div>
+
+    
     <div class="card-body">
         <div class="table-responsive">
             <table class="data-table table table-sm table-bordered table-striped" id="data-table" width="100%" cellspacing="0">
@@ -65,6 +95,8 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+
 
         // tamipilkan table order
         var table = $('.data-table').DataTable({
