@@ -18,6 +18,7 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
+    
         if ($request->ajax()) {
             $data = DB::table('order')
                     ->join('customers', 'order.customer_id', '=', 'customers.id')
@@ -41,10 +42,36 @@ class OrderController extends Controller
  
                             return $btn;
                     })
-                    ->rawColumns(['action'])
+
+                    // add column status
+                    ->addColumn('sts', function($row){
+                        if ($row->status == 'masuk') {
+                            $status = '<span class="badge badge-success">Masuk</span>';
+                        } else if ($row->status == 'batal') {
+                            $status = '<span class="badge badge-danger">Batal</span>';
+                        }
+                        return $status;
+                    })
+
+                    // filter berdasarkan status masuk & batal
+                    ->filter(function ($instance) use ($request) {
+                        if ($request->get('status') == 'masuk') {
+                            $instance->where('status', 'masuk');
+                        } else if ($request->get('status') == 'batal') {
+                            $instance->where('status', 'batal');
+                        }
+                    })
+
+                    ->rawColumns(['action', 'sts'])
                     ->make(true);
         }
-        return  view('backend.orders.index');
+        // jumlah order berdasarkan status masuk
+        $jumlah_order_masuk = Order::where('status', 'masuk')->count();
+        // jumlah order berdasarkan staus batal
+        $jumlah_order_batal = Order::where('status', 'batal')->count();
+        // jumlah order
+        $jumlah_order = Order::count();
+        return  view('backend.orders.index', compact('jumlah_order', 'jumlah_order_masuk', 'jumlah_order_batal'));
     }
 
     /**
