@@ -5,7 +5,7 @@
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-laugh-wink" style=""></i>
     </div>
-    
+
     @if (Auth::user()->role == 'superadmin')
     <div class="sidebar-brand-text mx-3">SuperAdmin</div>
     @elseif (Auth::user()->role == 'admin')
@@ -20,7 +20,7 @@
 
 
   @if (Auth::user()->role == 'superadmin')
-    <li class="nav-item {{Request::is('admin/dashboard') ? 'active' : ''}}">
+    <li class="nav-item {{Request::is('superadmin/dashboard') ? 'active' : ''}}">
       <a class="nav-link" href="{{route('superadmin.dashboard')}}">
         <i class="fas fa-fw fa-tachometer-alt" style=""></i>
         <span>Dashboard</span></a>
@@ -41,38 +41,38 @@
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Order -->
-    <li class="nav-item {{Request::is('admin/orders') ? 'active' : ''}}">
+    <li class="nav-item {{Request::is('superadmin/orders') ? 'active' : ''}}">
       <a class="nav-link" href="{{route('orders.index')}}">
         <i class="fas fa-cart-arrow-down" style=""></i>
         <span>Order</span></a>
     </li>
     <!-- Reviews -->
-    <li class="nav-item {{Request::is('admin/reviews') ? 'active' : ''}}">
+    <li class="nav-item {{Request::is('superadmin/reviews') ? 'active' : ''}}">
       <a class="nav-link" href="{{route('reviews.index')}}">
         <i class="fas fa-star" style=""></i>
         <span>Reviews</span></a>
     </li>
     <!-- Unsuspend -->
-    <li class="nav-item {{Request::is('admin/unsuspend') ? 'active' : ''}}">
+    <li class="nav-item {{Request::is('superadmin/unsuspend') ? 'active' : ''}}">
       <a class="nav-link" href="{{route('unsuspend.index')}}">
         <i class="fas fa-user-check" style=""></i>
         <span>Unsuspend</span></a>
     </li>
-    <!-- Register -->
-    <li class="nav-item {{Request::is('admin/register') ? 'active' : ''}}">
+    <!-- Admin -->
+    <li class="nav-item {{Request::is('superadmin/register') ? 'active' : ''}}">
       <a class="nav-link" href="{{route('admin.index')}}">
         <i class="fas fa-user-plus" style=""></i>
         <span>Admin</span></a>
     </li>
 
     <!-- data customers  -->
-    <li class="nav-item {{Request::is('admin/customers') ? 'active' : ''}}">
+    <li class="nav-item {{Request::is('superadmin/customers') ? 'active' : ''}}">
       <a class="nav-link" href="{{route('customers.index')}}">
         <i class="fas fa-users" style=""></i>
         <span>Customers</span></a>
     </li>
     <!-- //data terapis icon database  -->
-    <li class="nav-item {{Request::is('admin/terapis') ? 'active' : ''}}">
+    <li class="nav-item {{Request::is('superadmin/terapis') ? 'active' : ''}}">
       {{-- <a class="nav-link" href="{{route('terapis.index')}}"> --}}
         <a class="nav-link" href="#">
         <i class="fas fa-database" style=""></i>
@@ -90,17 +90,17 @@
     </div>
 
     <!-- Laporan -->
-    <li class="nav-item {{Request::is('admin/reports') ? 'active' : ''}}">
+    <li class="nav-item {{Request::is('superadmin/reports') ? 'active' : ''}}">
       <a class="nav-link" href="{{route('reports.index')}}">
         <i class="fas fa-file-alt" style=""></i>
         <span>Laporan</span></a>
     </li>
-
-  @elseif (Auth::user()->role == 'admin')
-
-
-  @endif
   
+  <!-- akses admin  -->
+  @elseif (Auth::user()->role == 'admin')
+  
+  @endif
+
   <!-- General settings -->
   <li class="nav-item">
     <a class="nav-link" href="">

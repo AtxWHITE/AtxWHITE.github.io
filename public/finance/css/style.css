@@ -10,10 +10,12 @@
 }
 
 :root {
-  --blue: #2a2185;
-  --white: #fff;
-  --gray: #f5f5f5;
+  --blue: #56AB91;
+  --white: #E3F2FD;
+  --gray: #FFFFFF;
   --black1: #222;
+  --tosca: #3FC1C0;
+  --tosca2: #0899BA;
   --black2: #999;
 }
 
@@ -32,8 +34,8 @@ body {
   position: fixed;
   width: 300px;
   height: 100%;
-  background: var(--blue);
-  border-left: 10px solid var(--blue);
+  background: var(--gray);
+  border-left: 10px solid var(--gray);
   transition: 0.5s;
   overflow: hidden;
 }
@@ -51,32 +53,34 @@ body {
 .navigation ul li {
   position: relative;
   width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
   list-style: none;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
 }
 
 .navigation ul li:hover,
 .navigation ul li.hovered {
   background-color: var(--white);
+  align-items: center;
 }
 
 .navigation ul li:nth-child(1) {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   pointer-events: none;
 }
 
 .navigation ul li a {
   position: relative;
   display: block;
+  align-items: center;
   width: 100%;
   display: flex;
   text-decoration: none;
-  color: var(--white);
+  color: var(--black1);
 }
 .navigation ul li:hover a,
 .navigation ul li.hovered a {
-  color: var(--blue);
+  color: var(--black1);
 }
 
 .navigation ul li a .icon {
@@ -86,9 +90,31 @@ body {
   height: 60px;
   line-height: 75px;
   text-align: center;
+  color: var(--tosca2);
 }
 .navigation ul li a .icon ion-icon {
   font-size: 1.75rem;
+}
+
+.navigation ul li a .pp {
+  position: relative;
+  display: block;
+  text-align: center;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+
+}
+.navigation ul li a .pp img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .navigation ul li a .title {
@@ -102,32 +128,6 @@ body {
 }
 
 /* --------- curve outside ---------- */
-.navigation ul li:hover a::before,
-.navigation ul li.hovered a::before {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: -50px;
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
-  border-radius: 50%;
-  box-shadow: 35px 35px 0 10px var(--white);
-  pointer-events: none;
-}
-.navigation ul li:hover a::after,
-.navigation ul li.hovered a::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: -50px;
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
-  border-radius: 50%;
-  box-shadow: 35px -35px 0 10px var(--white);
-  pointer-events: none;
-}
 
 /* ===================== Main ===================== */
 .main {
@@ -147,9 +147,10 @@ body {
   width: 100%;
   height: 60px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 0 10px;
+  background: var(--gray);
 }
 
 .toggle {
@@ -157,40 +158,12 @@ body {
   width: 60px;
   height: 60px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   font-size: 2.5rem;
   cursor: pointer;
 }
 
-.search {
-  position: relative;
-  width: 400px;
-  margin: 0 10px;
-}
-
-.search label {
-  position: relative;
-  width: 100%;
-}
-
-.search label input {
-  width: 100%;
-  height: 40px;
-  border-radius: 40px;
-  padding: 5px 20px;
-  padding-left: 35px;
-  font-size: 18px;
-  outline: none;
-  border: 1px solid var(--black2);
-}
-
-.search label ion-icon {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  font-size: 1.2rem;
-}
 
 .user {
   position: relative;
@@ -210,19 +183,55 @@ body {
   object-fit: cover;
 }
 
+.notifikasi {
+  position: relative;
+  display: flex;
+  margin-right: 20px;
+  justify-content: right;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
 /* ======================= Cards ====================== */
+.cardMain{
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 20px;
+}
+
+.cardMain .card {
+  position: relative;
+  background: var(--gray);
+  padding: 30px;
+  border-radius: 10px;
+  height: 60;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardMain .title {
+  font-size: large;
+  font-weight: 500;
+}
+
 .cardBox {
   position: relative;
   width: 100%;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
 }
 
 .cardBox .card {
   position: relative;
-  background: var(--white);
+  background: var(--gray);
   padding: 30px;
   border-radius: 20px;
   display: flex;
@@ -234,20 +243,16 @@ body {
 .cardBox .card .numbers {
   position: relative;
   font-weight: 500;
-  font-size: 2.5rem;
-  color: var(--blue);
+  font-size: 20px;
+  color: var(--gray);
 }
 
 .cardBox .card .cardName {
-  color: var(--black2);
-  font-size: 1.1rem;
+  color: var(--gray);
+  font-size: small;
   margin-top: 5px;
 }
 
-.cardBox .card .iconBx {
-  font-size: 3.5rem;
-  color: var(--black2);
-}
 
 .cardBox .card:hover {
   background: var(--blue);
@@ -255,7 +260,7 @@ body {
 .cardBox .card:hover .numbers,
 .cardBox .card:hover .cardName,
 .cardBox .card:hover .iconBx {
-  color: var(--white);
+  color: var(--gray);
 }
 
 /* ================== Order Details List ============== */
@@ -273,7 +278,7 @@ body {
   position: relative;
   display: grid;
   min-height: 500px;
-  background: var(--white);
+  background: var(--gray);
   padding: 20px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
@@ -293,7 +298,7 @@ body {
   padding: 5px 10px;
   background: var(--blue);
   text-decoration: none;
-  color: var(--white);
+  color: var(--gray);
   border-radius: 6px;
 }
 
@@ -314,7 +319,7 @@ body {
 }
 .details .recentOrders table tbody tr:hover {
   background: var(--blue);
-  color: var(--white);
+  color: var(--gray);
 }
 .details .recentOrders table tr td {
   padding: 10px;
@@ -331,7 +336,7 @@ body {
 .status.delivered {
   padding: 2px 4px;
   background: #8de02c;
-  color: var(--white);
+  color: var(--gray);
   border-radius: 4px;
   font-size: 14px;
   font-weight: 500;
@@ -339,7 +344,7 @@ body {
 .status.pending {
   padding: 2px 4px;
   background: #e9b10a;
-  color: var(--white);
+  color: var(--gray);
   border-radius: 4px;
   font-size: 14px;
   font-weight: 500;
@@ -347,7 +352,7 @@ body {
 .status.return {
   padding: 2px 4px;
   background: #f00;
-  color: var(--white);
+  color: var(--gray);
   border-radius: 4px;
   font-size: 14px;
   font-weight: 500;
@@ -355,7 +360,7 @@ body {
 .status.inProgress {
   padding: 2px 4px;
   background: #1795ce;
-  color: var(--white);
+  color: var(--gray);
   border-radius: 4px;
   font-size: 14px;
   font-weight: 500;
@@ -366,7 +371,7 @@ body {
   display: grid;
   min-height: 500px;
   padding: 20px;
-  background: var(--white);
+  background: var(--gray);
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
 }

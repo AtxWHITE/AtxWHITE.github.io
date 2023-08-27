@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SuperadminController;
 /*
@@ -18,34 +17,6 @@ use App\Http\Controllers\SuperadminController;
 
 Auth::routes();
 
-// //logoutn
-Route::get('/', function () {
-    return view('index');
-});
-
-// // /user 
-// Route::get('/user', [HomeController::class, 'index'])->name('user.home');
-// //route home
-
-// jika mengakses home maka arahkan ke / 
-Route::get('/home', function () {
-    return redirect('/');
-});
-
-// //group route for admin
-// Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], function () {
-//     // admin/home
-//     Route::get('/', [HomeController::class, 'adminHome'])->name('admin.home');
-//     Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('admin.dashboard');
-//     //profil
-//     Route::get('/profile/{id}', [ProfilController::class, 'index'])->name('admin.profile');
-//     Route::post('/updateProfil/{id}', [ProfilController::class, 'updateProfil'])->name('admin.profile.update');
-//     // Route::resource('users', 'App\Http\Controllers\Admin\UserController');
-//     //customer
-//     Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
-
-// });
-
 //verfikasi email
 Auth::routes(['verify' => true]);
 
@@ -53,20 +24,20 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(function () {
-    // dashboard
+// // Route::get('/user', [HomeController::class, 'index'])->name('user.home');
 
+Route::get('/keuangan', [HomeController::class, 'keuangan']);
+
+Route::get('/keuangan', [HomeController::class, 'keuangan']);
+
+
+Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(function () {
     Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('superadmin.dashboard');
     //route /
     Route::get('/', [HomeController::class, 'adminHome'])->name('superadmin.home');
     //profil
-
     Route::get('/profile/{id}', [SuperadminController::class, 'profile'])->name('superadmin.profile');
     Route::post('/updateProfil/{id}', [SuperadminController::class, 'updateProfil'])->name('superadmin.profile.update');
-
-    Route::get('/profile/{id}', [ProfilController::class, 'index'])->name('superadmin.profile');
-
-    Route::post('/updateProfil/{id}', [ProfilController::class, 'updateProfil'])->name('superadmin.profile.update');
     // Route::resource('users', 'App\Http\Controllers\Admin\UserController');
     //customer
     Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');

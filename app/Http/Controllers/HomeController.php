@@ -29,10 +29,19 @@ class HomeController extends Controller
     {
         return view('backend.index');
     }
+    public function keuangan()
+    {
+        return view('keuangan.index');
+    }
     public function terapisHome()
     {
         $user = auth()->user();
         // dd('admin');
         return view('home');
+    }
+    public function keuangan()
+    {
+        // dd('admin');
+        return view('keuangan.index');
     }
 }

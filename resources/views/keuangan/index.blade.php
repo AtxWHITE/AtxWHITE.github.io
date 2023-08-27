@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
+    <title>Finance</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="{{ asset('finance/css/style.css') }}">
 </head>
@@ -18,72 +18,45 @@
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="logo-apple"></ion-icon>
+                            <img src="{{ asset('frontend/assets/image/logo-70.png') }}" alt="">
                         </span>
-                        <span class="title">Brand Name</span>
+                        <span class="title" style="font-weight: 700;">Finance</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
+                            <ion-icon name="grid"></ion-icon>
                         </span>
-                        <span class="title">Dashboard</span>
+                        <span class="title">Beranda</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
+                            <ion-icon name="cash"></ion-icon>
                         </span>
-                        <span class="title">Customers</span>
+                        <span class="title">Transaksi Customer</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="chatbubble-outline"></ion-icon>
+                            <ion-icon name="time-outline"></ion-icon>
                         </span>
-                        <span class="title">Messages</span>
+                        <span class="title">Riwayat</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="help-outline"></ion-icon>
+                            <ion-icon name="wallet-outline"></ion-icon>
                         </span>
-                        <span class="title">Help</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="settings-outline"></ion-icon>
-                        </span>
-                        <span class="title">Settings</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="lock-closed-outline"></ion-icon>
-                        </span>
-                        <span class="title">Password</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Sign Out</span>
+                        <span class="title">Pendapatan</span>
                     </a>
                 </li>
             </ul>
@@ -96,63 +69,108 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
-                <div class="search">
-                    <label>
-                        <input type="text" placeholder="Search here">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </label>
+                <div class="notifikasi">
+                    <ion-icon name="notifications-sharp"></ion-icon>
                 </div>
 
                 <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt="">
+                    <img src="{{'finance/imgs/customer01.jpg'}}" alt="">
                 </div>
+
             </div>
 
             <!-- ======================= Cards ================== -->
+            <div class="cardMain">
+                <div class="card">
+                    <div class="title">Transaksi Bulanan</div>
+                    <div class="bulan">April</div>
+                </div>
+
+            </div>
             <div class="cardBox">
-                <div class="card">
+                <div class="card" style="background-color: #3FC1C0;">
                     <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
+                        <div class="numbers">Rp 19.000.000,00</div>
+                        <div class="cardName">Transaksi Masuk</div>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" style="background-color: #04A6C2;">
                     <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
+                        <div class="numbers">Rp 4.500.000,00</div>
+                        <div class="cardName">Transaksi Keluar</div>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" style="background-color: #42A5F5;">
                     <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="chatbubbles-outline"></ion-icon>
+                        <div class="numbers">Rp. 14.500.000,00</div>
+                        <div class="cardName">Total</div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
-                    </div>
+            </div>
 
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
+            <div class="cardMain">
+                <div class="card">
+                    <div class="title">Transaksi Mingguan</div>
+                    <div class="bulan">Minggu Ke 1</div>
+                </div>
+
+            </div>
+            <div class="cardBox">
+                <div class="card" style="background-color: #3FC1C0;">
+                    <div>
+                        <div class="numbers">Rp 19.000.000,00</div>
+                        <div class="cardName">Transaksi Masuk</div>
                     </div>
                 </div>
+
+                <div class="card" style="background-color: #04A6C2;">
+                    <div>
+                        <div class="numbers">Rp 4.500.000,00</div>
+                        <div class="cardName">Transaksi Keluar</div>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color: #42A5F5;">
+                    <div>
+                        <div class="numbers">Rp. 14.500.000,00</div>
+                        <div class="cardName">Total</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="cardMain">
+                <div class="card">
+                    <div class="title">Transaksi Harian</div>
+                    <div class="bulan">10 April 2023</div>
+                </div>
+
+            </div>
+            <div class="cardBox">
+                <div class="card" style="background-color: #3FC1C0;">
+                    <div>
+                        <div class="numbers">Rp 19.000.000,00</div>
+                        <div class="cardName">Transaksi Masuk</div>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color: #04A6C2;">
+                    <div>
+                        <div class="numbers">Rp 4.500.000,00</div>
+                        <div class="cardName">Transaksi Keluar</div>
+                    </div>
+                </div>
+
+                <div class="card" style="background-color: #42A5F5;">
+                    <div>
+                        <div class="numbers">Rp. 14.500.000,00</div>
+                        <div class="cardName">Total</div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- ================ Order Details List ================= -->
@@ -242,7 +260,7 @@
                     <table>
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer01.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -251,7 +269,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer01.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -260,7 +278,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer02.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -269,7 +287,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer01.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -278,7 +296,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer02.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -287,7 +305,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer01.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -296,7 +314,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer01.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -305,7 +323,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="{{'finance/imgs/customer02.jpg'}}" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
@@ -315,10 +333,13 @@
                 </div>
             </div>
         </div>
+        <div class="jobs">
+
+        </div>
     </div>
 
     <!-- =========== Scripts =========  -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('finance/js/main.js') }}"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
