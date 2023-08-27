@@ -73,14 +73,14 @@
                                 <li><a class="dropdown-item" href="#">Profil</a></li>
                                 <li><a class="dropdown-item" href="#">Pengaturan</a></li>
                                 <!-- //if email verifi == null verifi  -->
-                                @if (auth()->user()->email_verified_at == null)
+                                {{-- @if (auth()->user()->email_verified_at == null)
                                 <li>
                                     <form action="{{ route('verification.resend') }}" method="POST">
                                         @csrf
                                         <button type="submit" class="dropdown-item">Verifikasi Email</button>
                                     </form>
                                 </li>
-                                @endif
+                                @endif --}}
                                 <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Keluar</a>
                                 </li>
 

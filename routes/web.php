@@ -20,86 +20,16 @@ Auth::routes();
 //verfikasi email
 Auth::routes(['verify' => true]);
 
-
 Route::get('/', function () {
     return view('index');
 });
-// <<<<<<< HEAD
-// =======
-// // // /user 
+
 // // Route::get('/user', [HomeController::class, 'index'])->name('user.home');
-// // //route home
 
-// // jika mengakses home maka arahkan ke / 
-// Route::get('/home', function () {
-//     return redirect('/');
-// });
-
-// // //group route for admin
-// // Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'is_admin']], function () {
-// //     // admin/home
-// //     Route::get('/', [HomeController::class, 'adminHome'])->name('admin.home');
-// //     Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('admin.dashboard');
-// //     //profil
-// //     Route::get('/profile/{id}', [ProfilController::class, 'index'])->name('admin.profile');
-// //     Route::post('/updateProfil/{id}', [ProfilController::class, 'updateProfil'])->name('admin.profile.update');
-// //     // Route::resource('users', 'App\Http\Controllers\Admin\UserController');
-// //     //customer
-// //     Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
-
-// // });
-
-
-// // Route::get('/user', function () {
-// //     return view('index');
-
-// //     //terapi
-// //     Route::resource('terapis', 'App\Http\Controllers\Admin\TerapisController');
-// //     // order 
-// //     Route::resource('orders', 'App\Http\Controllers\Admin\OrderController');
-// //     // reviews 
-// //     Route::resource('reviews', 'App\Http\Controllers\Admin\ReviewsController');
-// //     // unsuspend
-// //     Route::resource('unsuspend', 'App\Http\Controllers\Admin\UnsuspendController');
-// //     // register
-// //     Route::resource('adminRegister', 'App\Http\Controllers\Admin\RegisterController');
-// //     // reports 
-// //     Route::resource('reports', 'App\Http\Controllers\Admin\ReportController');
-// // });
-// // //prefik user=terapis
-// // Route::group(['prefix' => '/terapis', 'middleware' => ['auth', 'is_admin']], function () {
-// //     Route::get('/', [HomeController::class, 'terapisHome'])->name('terapis.home');
-// //     //profil
-
-// // });
-// // //midle where user
-// // Route::group(['prefix' => '/users', 'middleware' => ['auth', 'is_admin']], function () {
-// //     Route::get('/', [HomeController::class, 'index'])->name('users.home');
-// //     //profil
-// // });
-// // // Route::get('/user', function () {
-// // //     return view('index');
-// // // })->name('user');
-
-
-// // Route::get('/login', function () {
-// //     return view('login');
-// // })->name('login');
-
-// >>>>>>> d56e70c0a13e594f06160a6864afb1eb723e9a18
-// Route::get('/register', function () {
-//     return view('register');
-// })->name('register');
-
-<<<<<<< HEAD
 Route::get('/keuangan', [HomeController::class, 'keuangan']);
 
-
-=======
-// maspian
 Route::get('/keuangan', [HomeController::class, 'keuangan']);
 
->>>>>>> c80cfb25e54c20c663db89777f0f105cdd773eb5
 
 Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(function () {
     Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('superadmin.dashboard');
@@ -120,7 +50,7 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(func
     // unsuspend
     Route::resource('unsuspend', 'App\Http\Controllers\Admin\UnsuspendController');
     // register
-    Route::resource('adminRegister', 'App\Http\Controllers\Admin\RegisterController');
+    Route::resource('admin', 'App\Http\Controllers\AdminController');
     // reports 
     Route::resource('reports', 'App\Http\Controllers\Admin\ReportController');
 });
