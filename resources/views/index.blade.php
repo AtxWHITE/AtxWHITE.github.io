@@ -58,7 +58,9 @@
                     </li>
                 </ul>
                 <div>
-                    @if (Auth::check())
+                    @if (Auth()->user() == true)
+                    <!-- //div  -->
+                    <a href="{{ url('logout') }}" class="button-secondary">logout</a>
                     <div class="dropdown">
                         <!-- //icon profile  -->
 

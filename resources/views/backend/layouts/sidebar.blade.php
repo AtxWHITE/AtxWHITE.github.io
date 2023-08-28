@@ -1,9 +1,12 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="background: linear-gradient(180deg, #428c638a  0%, #2a7539c7 100%);">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="background: #ffff;">
 
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
     <div class="sidebar-brand-icon rotate-n-15">
-      <i class="fas fa-laugh-wink" style=""></i>
+      <!-- icon  -->
+      <img src="{{asset('frontend/assets/image/logo-70.png')}}" alt="" width="50px">
+
+      <!-- <i class="fas fa-laugh-wink" style=""></i> -->
     </div>
 
     @if (Auth::user()->role == 'superadmin')
@@ -53,9 +56,9 @@
       <span>Customers</span></a>
   </li>
   <!-- //data terapis icon database  -->
-  <li class="nav-item {{Request::is('admin/terapis') ? 'active' : ''}}">
-    {{-- <a class="nav-link" href="{{route('terapis.index')}}"> --}}
-    <a class="nav-link" href="#">
+  <li class="nav-item {{Request::is('superadmin/terapis') ? 'active' : ''}}">
+    <a class="nav-link" href="{{url('superadmin/terapis')}}">
+      <!-- <a class="nav-link" href="#"> -->
       <i class="fas fa-database" style=""></i>
       <span>Terapis</span></a>
   </li>
