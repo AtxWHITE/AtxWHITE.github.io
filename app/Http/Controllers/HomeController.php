@@ -39,9 +39,4 @@ class HomeController extends Controller
         // dd('admin');
         return view('home');
     }
-    public function keuangan()
-    {
-        // dd('admin');
-        return view('keuangan.index');
-    }
 }
