@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SuperadminController;
+use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +21,6 @@ Auth::routes();
 
 //verfikasi email
 Auth::routes(['verify' => true]);
-
 
 Route::get('/', function () {
     return view('index');
@@ -38,6 +38,11 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register');
 });
+
+// // Route::get('/user', [HomeController::class, 'index'])->name('user.home');
+
+Route::get('/keuangan', [HomeController::class, 'keuangan']);
+
 
 Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(function () {
     Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('superadmin.dashboard');
@@ -64,7 +69,7 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(func
     // unsuspend
     Route::resource('unsuspend', 'App\Http\Controllers\Admin\UnsuspendController');
     // register
-    Route::resource('adminRegister', 'App\Http\Controllers\Admin\RegisterController');
+    Route::resource('admin', 'App\Http\Controllers\AdminController');
     // reports 
     Route::resource('reports', 'App\Http\Controllers\Admin\ReportController');
 });

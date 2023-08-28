@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terpist</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="{{ asset('terapis/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('finance/css/style.css') }}">
 </head>
 
 <body>
