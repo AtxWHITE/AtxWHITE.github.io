@@ -28,9 +28,6 @@ Route::get('/', function () {
 
 Route::get('/keuangan', [HomeController::class, 'keuangan']);
 
-Route::get('/keuangan', [HomeController::class, 'keuangan']);
-
-
 Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(function () {
     Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('superadmin.dashboard');
     //route /
