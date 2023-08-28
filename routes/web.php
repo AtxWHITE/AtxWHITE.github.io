@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SuperadminController;
+use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,10 +25,21 @@ Auth::routes(['verify' => true]);
 Route::get('/', function () {
     return view('index');
 });
+//logout
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+});
+//login
+Route::get('/login', function () {
+    return view('auth.login');
+});
+//register
+Route::get('/register', function () {
+    return view('auth.register');
+});
 
 // // Route::get('/user', [HomeController::class, 'index'])->name('user.home');
-
-Route::get('/keuangan', [HomeController::class, 'keuangan']);
 
 Route::get('/keuangan', [HomeController::class, 'keuangan']);
 
@@ -41,6 +54,12 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->group(func
     // Route::resource('users', 'App\Http\Controllers\Admin\UserController');
     //customer
     Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController');
+    Route::delete('/customers/destroy/{customer}', 'App\Http\Controllers\Admin\CustomerController@destroy');
+
+    // superadmin/customers/destroy
+    // customers/update2
+    // Route::post('customers/update2', 'App\Http\Controllers\Admin\CustomerController@update2')->name('customers.update2');
+    //get
     //terapi
     Route::resource('terapis', 'App\Http\Controllers\Admin\TerapisController');
     // order 

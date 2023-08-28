@@ -96,6 +96,6 @@ class RegisterController extends Controller
             }
             $customers->save();
         }
-        return redirect('/')->with('success', 'Berhasil Mendaftar, Silahkan verifikasi email anda');
+        return redirect('/login')->with('success', 'Berhasil Mendaftar, Silahkan verifikasi email anda');
     }
 }

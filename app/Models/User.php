@@ -52,4 +52,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(SuperAdmin::class, 'user_id', 'id');
     }
+    //terapis
+    public function terapis()
+    {
+        return $this->hasOne(Terapis::class, 'user_id', 'id');
+    }
 }

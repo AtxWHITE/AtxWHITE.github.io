@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Terapis;
 
 class TerapisController extends Controller
 {
@@ -16,9 +17,9 @@ class TerapisController extends Controller
     public function index()
     {
         //user where is_admin = 2 adalah terapis
-        $user = User::with('profile')->where('is_admin', 2)->get();
-        // dd($user);
-        return view('backend.terapis.index', compact('user'));
+        $Terapis = Terapis::with('layanan', 'user')->get();
+        // dd($Terapis);
+        return view('backend.terapis.index', compact('Terapis'));
     }
 
     /**

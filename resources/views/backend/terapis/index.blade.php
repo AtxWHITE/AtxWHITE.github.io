@@ -36,23 +36,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($user as $data)
+                    @foreach($Terapis as $data)
                     <tr>
                         <td>{{$loop->iteration}}</td>
-                        <td>{{$data->name}}</td>
+                        <td>{{$data->nama}}</td>
                         <td>TRP-{{$data->id}}</td>
                         <td>
-
                             <a href="#" id="foto" data-toggle="modal" data-target="#modalFoto" class="btn btn-success btn-sm">lihat</a>
                         </td>
-                        <td>{{$data->profile->nik_ktp}}</td>
+                        <td>{{$data->nik}}</td>
                         <td>
                             <!-- button lihat  -->
                             <a href="#" id="foto_ktp" data-toggle="modal" data-target="#modalKtp" class="btn btn-success btn-sm">lihat</a>
-                            <!-- <img src="{{asset('storage/foto_ktp/'.$data->profile->ktp)}}" class="img-fluid" style="max-width: 80px" alt="{{$data->profile->ktp}}"> -->
                         </td>
-                        <td>{{$data->profile->no_hp}}</td>
-                        <td>{{$data->profile->alamat}}</td>
+                        <td>{{$data->no_hp}}</td>
+                        <td>{{$data->alamat}}</td>
                         <!-- //button detail  -->
                         <td>
                             <a href="{{route('terapis.show',$data->id)}}" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
@@ -84,7 +82,7 @@
                     </h5>
                 </div>
                 <div class="modal-body">
-                    <img src="{{ asset('storage/foto_ktp/'.$data->profile->ktp) }}" class="img-fluid" alt="foto" id="holder">
+                    <img src="{{ asset('storage/foto_ktp/'.$data->foto_ktp) }}" class="img-fluid" alt="foto" id="holder">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -110,7 +108,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <img src="{{ asset('storage/foto/'.$data->profile->foto) }}" class="img-fluid" alt="foto" id="holder">
+                <img src="{{ asset('storage/foto/'.$data->foto) }}" class="img-fluid" alt="foto" id="holder">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
